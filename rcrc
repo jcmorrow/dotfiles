@@ -1,3 +1,2 @@
-TFILES_DIRS="$HOME/src/github.com/jcmorrow-dotfiles
-$HOME/src/github.com/thoughtbot/dotfiles"
+DOTFILES_DIRS="$HOME/jcmorrow-dotfiles $HOME/thoughtbot-dotfiles"
 
