@@ -1,0 +1,7 @@
+[user]
+	email = josh@jcmorrow.com
+	name = Josh Morrow
+[push]
+	default = matching
+[core]
+	editor = /usr/bin/vim
