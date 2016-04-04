@@ -45,3 +45,6 @@
   default = current
 [rebase]
   autosquash = true
+[user]
+	name = Josh Morrow
+	email = jcmorrow@thoughtbot.com
