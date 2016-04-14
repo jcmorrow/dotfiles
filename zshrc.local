@@ -1,1 +1,3 @@
 eval "$(rbenv init -)"
+PATH="/jcmorrow-dotfiles/bin:${PATH}"
+export PATH
