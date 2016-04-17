@@ -1,6 +1,7 @@
 set background=dark
 set t_Co=256
-colorscheme brogrammer
+color grb256
+colorscheme pencil
 
 nnoremap <Leader>f :CtrlP<CR>
 map <C-n> :NERDTreeToggle<CR>
