@@ -1,6 +1,9 @@
 set t_Co=256
 color grb256
 colorscheme pencil
+let g:airline_theme="papercolor"
+let g:test#javascript#mocha#file_pattern = '\v__tests__/.*\.(js|jsx|coffee)$'
+let g:test#javascript#mocha#options = '--compilers js:babel-core/register --watch-extensions js,jsx,es6,es6.jsx --opts mocha.opts'
 set background=light
 
 nnoremap <Leader>f :CtrlP<CR>
