@@ -11,6 +11,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 set relativenumber
 
+" Indent list items correctly
+set ai
+
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
