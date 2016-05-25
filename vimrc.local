@@ -1,7 +1,6 @@
 set t_Co=256
 color grb256
 colorscheme pencil
-let g:airline_theme="papercolor"
 let g:test#javascript#mocha#file_pattern = '\v__tests__/.*\.(js|jsx|coffee)$'
 let g:test#javascript#mocha#options = '--compilers js:babel-core/register --watch-extensions js,jsx,es6,es6.jsx --opts mocha.opts'
 set background=light
@@ -20,3 +19,24 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+" airline - set theme and remove awful separators
+let g:airline_theme="papercolor"
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" Disable annoying whitespace indicator
+let g:airline#extensions#whitespace#enabled=0
+
+" Better tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+
+" Don't show modes
+let g:airline#extensions#ctrlp#show_adjacent_modes = 0
+
+" Better line/column information
+let g:airline_section_b = ""
+let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
