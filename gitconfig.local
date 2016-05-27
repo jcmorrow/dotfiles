@@ -30,6 +30,8 @@
   wd = diff --word-diff
 [color]
   ui = auto
+[commit]
+  gpgSign = true
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -38,6 +40,8 @@
   prune = true
 [github]
   user = jcmorrow
+[gpg]
+  program = gpg2
 [grep]
   lineNumber = true
 [merge]
