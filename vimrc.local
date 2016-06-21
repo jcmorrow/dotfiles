@@ -11,7 +11,7 @@ map <C-n> :NERDTreeToggle<CR>
 set relativenumber
 
 " Indent list items correctly
-set ai
+set autoindent
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -19,6 +19,9 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+" leader d to run the spec file in documentation format
+nnoremap <silent> <Leader>d :TestFile --format doc<CR>
 
 " airline - set theme and remove awful separators
 let g:airline_theme="papercolor"
