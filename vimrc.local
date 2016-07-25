@@ -16,6 +16,9 @@ set relativenumber
 " Indent list items correctly
 set autoindent
 
+" Don't ask me if I want to load changed files. The answer is "Yes, always"
+:set autoread
+
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
