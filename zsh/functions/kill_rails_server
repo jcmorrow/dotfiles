@@ -1,8 +1,0 @@
-#!/bin/sh
-#
-# Kill whatever is on port 3000
-
-kill_rails_server()
-{
-  kill -9 $(lsof -i tcp:3000 -t)
-}
