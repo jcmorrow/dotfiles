@@ -34,3 +34,6 @@ export DEFAULT_USER="josh"
 alias lsd="ls | lolcat"
 alias gpg=gpg2
 eval $(thefuck --alias)
+
+# make zsh line editing act like vim
+bindkey -v
