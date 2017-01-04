@@ -1,16 +1,36 @@
+# rbenv
 eval "$(rbenv init -)"
-PATH="/jcmorrow-dotfiles/bin:${PATH}"
-export PATH
 
+# include this repo's bin
+export PATH="/jcmorrow-dotfiles/bin:${PATH}"
+
+# include this repo's functions
 for function in ~/.zsh/functions/*; do
   source $function
 done
 
-alias gpg=gpg2
+# oh my zsh stuff
+export ZSH=~/.oh-my-zsh
+ZSH_THEME="avit"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
+# Prefered editors for local and remote
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
 else
-    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+  export EDITOR='nvim'
 fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Shorten prompt
+export DEFAULT_USER="josh"
+
+alias lsd="ls | lolcat"
+alias gpg=gpg2
+eval $(thefuck --alias)
