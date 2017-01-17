@@ -18,3 +18,7 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # escape timing is the worst
 set -s escape-time 0
+
+# copy and paste fix on sierra
+set -g default-shell $SHELL 
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
