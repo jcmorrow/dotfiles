@@ -1,6 +1,3 @@
-# rbenv
-eval "$(rbenv init -)"
-
 # include this repo's bin
 export PATH="/jcmorrow-dotfiles/bin:${PATH}"
 
@@ -12,7 +9,7 @@ done
 # oh my zsh stuff
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="avit"
-plugins=(git)
+plugins=(git rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Prefered editors for local and remote
@@ -37,3 +34,6 @@ eval $(thefuck --alias)
 
 # make zsh line editing act like vim
 bindkey -v
+
+# rbenv
+eval "$(rbenv init -)"
