@@ -13,8 +13,6 @@ set scrolloff=999
 nnoremap <Leader>f :CtrlP<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-set relativenumber
-
 " Indent list items correctly
 set autoindent
 
