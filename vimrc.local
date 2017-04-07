@@ -2,6 +2,7 @@ set t_Co=256
 color grb256
 colorscheme pencil
 
+let g:test#strategy = 'dispatch'
 let g:test#javascript#mocha#file_pattern = '\v__tests__/.*\.(js|jsx|coffee)$'
 let g:test#javascript#mocha#options = '--compilers js:babel-core/register --watch-extensions js,jsx,es6,es6.jsx --opts mocha.opts'
 
@@ -27,7 +28,10 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " leader d to run the whole spec file
-nnoremap <silent> <Leader>d :TestFile<CR>
+nnoremap <silent> <Leader>d :TestFile --format doc<CR>
+" leader c to copy the run nearest spec command to a clipboard so I can get
+" better output
+nnoremap <silent> <Leader>c :redir @* <bar> TestNearest <bar> redir END<CR>
 
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
