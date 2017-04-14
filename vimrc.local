@@ -13,6 +13,8 @@ set scrolloff=999
 
 nnoremap <Leader>f :CtrlP<CR>
 map <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the only open buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Indent list items correctly
 set autoindent
