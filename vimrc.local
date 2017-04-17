@@ -113,3 +113,6 @@ endfunc
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" Pretty print JSON
+nnoremap <Leader>j :%!python -m json.tool<CR>
