@@ -115,4 +115,5 @@ endfunc
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " Pretty print JSON
+nnoremap <Leader>x :%!xmllint --format %<CR>
 nnoremap <Leader>j :%!python -m json.tool<CR>
