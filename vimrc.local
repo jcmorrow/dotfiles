@@ -11,7 +11,6 @@ set background=light
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
 
-nnoremap <Leader>f :CtrlP<CR>
 map <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the only open buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -100,6 +99,7 @@ set clipboard=unnamed
 nnoremap <Leader>gc :Gblame<CR><C-W>h:Gbrowse <C-R><C-W><CR>:q<CR>
 
 " Fuzzyfind
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <Leader>f :FZF<CR>
 
 " Show syntax highlighting groups for word under cursor

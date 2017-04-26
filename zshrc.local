@@ -37,3 +37,6 @@ bindkey -v
 
 # rbenv
 eval "$(rbenv init -)"
+
+# direnv
+eval "$(direnv hook zsh)"
