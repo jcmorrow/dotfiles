@@ -11,8 +11,9 @@ set background=light
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
 
-nnoremap <Leader>f :CtrlP<CR>
 map <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the only open buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Indent list items correctly
 set autoindent
@@ -98,6 +99,7 @@ set clipboard=unnamed
 nnoremap <Leader>gc :Gblame<CR><C-W>h:Gbrowse <C-R><C-W><CR>:q<CR>
 
 " Fuzzyfind
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <Leader>f :FZF<CR>
 
 " Show syntax highlighting groups for word under cursor
@@ -111,3 +113,7 @@ endfunc
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" Pretty print JSON
+nnoremap <Leader>x :%!xmllint --format %<CR>
+nnoremap <Leader>j :%!python -m json.tool<CR>
