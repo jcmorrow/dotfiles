@@ -39,3 +39,14 @@ eval "$(direnv hook zsh)"
 
 # rbenv
 eval "$(rbenv init -)"
+
+#direnv
+eval "$(direnv hook zsh)"
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# Wonderful reverse search
+bindkey -v
+bindkey '^R' history-incremental-search-backward

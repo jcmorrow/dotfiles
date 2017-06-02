@@ -20,7 +20,7 @@ create_if_needed_and_attach() {
     tmux new-window -t "$session_name" -n server
     tmux new-window -t "$session_name" -n console
     tmux select-window -t "$session_name" -n
-    tmux attach -t "$session_name"
+    tmux attach -t "$session_name" -d
   else
     if ! session_exists; then
       create_detached_session

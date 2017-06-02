@@ -1,17 +1,53 @@
+set nocompatible
+set noswapfile
+let mapleader = " "
+set cc=80
+set textwidth=80
+set backspace=indent,eol,start
+
+" Autowrap markdown files
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+set number
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" vim-test mappings
+nnoremap <silent> <Leader>t :TestFile<CR>
+nnoremap <silent> <Leader>s :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
+nnoremap <silent> <Leader>a :TestSuite<CR>
+nnoremap <silent> <leader>gt :TestVisit<CR>
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Highlight search matches
+set hlsearch
+
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+
 set t_Co=256
 color grb256
 colorscheme pencil
-
-let g:test#strategy = 'dispatch'
-let g:test#javascript#mocha#file_pattern = '\v__tests__/.*\.(js|jsx|coffee)$'
-let g:test#javascript#mocha#options = '--compilers js:babel-core/register --watch-extensions js,jsx,es6,es6.jsx --opts mocha.opts'
-
 set background=light
 
+let g:test#strategy = 'dispatch'
+
+:highlight CursorLine gui=underline cterm=underline
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
 
-nnoremap <Leader>f :CtrlP<CR>
+" NERDTree for surfing ze files
 map <C-n> :NERDTreeToggle<CR>
 
 " Indent list items correctly
@@ -20,6 +56,7 @@ set autoindent
 " Don't ask me if I want to load changed files. The answer is "Yes, always"
 :set autoread
 
+" WTF does this do?
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -33,12 +70,15 @@ nnoremap <silent> <Leader>d :TestFile --format doc<CR>
 " better output
 nnoremap <silent> <Leader>c :redir @* <bar> TestNearest <bar> redir END<CR>
 
+" Leader ra to build a thing and then immediately flash it to the arduino
+" attached to the current project
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
 let g:airline_theme="papercolor"
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+set laststatus=2
 
 " Disable annoying whitespace indicator
 let g:airline#extensions#whitespace#enabled=0
@@ -53,31 +93,10 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
-" " Syntastic
-" let g:syntastic_always_populate_loc_list = 0
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_rust_checkers = ['rustc']
-" let g:syntastic_ruby_checkers = ['rubocop']
-" let g:syntastic_loc_list_height = 5
-"
-" highlight SyntasticErrorSign guifg=white guibg=red
-" highlight SyntasticWarningSign guifg=white guibg=red
-" highlight SyntasticStyleErrorSign guifg=white guibg=red
-" highlight SyntasticStyleWarningSign guifg=white guibg=red
-"
-" let g:syntastic_error_symbol = 'X'
-" let g:syntastic_warning_symbol = '?'
-" let g:syntastic_style_error_symbol = 'X'
-" let g:syntastic_style_warning_symbol = '?'
-
-" ALE
+" " ALE for syntax warning
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-
 set statusline+=%{ALEGetStatusLine()}
 
 " GitGutter
@@ -100,14 +119,30 @@ nnoremap <Leader>gc :Gblame<CR><C-W>h:Gbrowse <C-R><C-W><CR>:q<CR>
 " Fuzzyfind
 nnoremap <Leader>f :FZF<CR>
 
-" Show syntax highlighting groups for word under cursor
-nmap <C-Y> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+au BufNewFile,BufRead *.ng.erb let b:eruby_subtype = 'html'
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
