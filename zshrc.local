@@ -35,5 +35,7 @@ eval $(thefuck --alias)
 # make zsh line editing act like vim
 bindkey -v
 
+eval "$(direnv hook zsh)"
+
 # rbenv
 eval "$(rbenv init -)"
