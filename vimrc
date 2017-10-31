@@ -49,6 +49,8 @@ set scrolloff=999
 
 " NERDTree for surfing ze files
 map <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the only open buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Indent list items correctly
 set autoindent
@@ -146,3 +148,7 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
+
+" Pretty print JSON
+nnoremap <Leader>x :%!xmllint --format %<CR>
+nnoremap <Leader>j :%!python -m json.tool<CR>
