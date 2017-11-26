@@ -127,6 +127,9 @@ nnoremap <Leader>gc :Gblame<CR><C-W>h:Gbrowse <C-R><C-W><CR>:q<CR>
 
 " Fuzzyfind
 nnoremap <Leader>f :FZF<CR>
+" This makes FZF respect gitignore
+" https://github.com/junegunn/fzf.vim/issues/121
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
