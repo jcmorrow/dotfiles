@@ -70,7 +70,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <Leader>d :TestFile --format doc<CR>
 " leader c to copy the run nearest spec command to a clipboard so I can get
 " better output
-nnoremap <silent> <Leader>c :redir @* <bar> TestNearest <bar> redir END<CR>
+" nnoremap <silent> <Leader>c :redir @* <bar> TestNearest <bar> redir END<CR>
+
+" leader c to compile the current file and run it
+nnoremap <silent> <Leader>c :Dispatch make %:r<CR>:Dispatch ./%:r<CR>
 
 " Leader ra to build a thing and then immediately flash it to the arduino
 " attached to the current project
