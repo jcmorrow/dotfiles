@@ -28,7 +28,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Shorten prompt
 export DEFAULT_USER="josh"
 
-alias lsd="ls | lolcat"
+alias ctags="`brew --prefix`/Cellar/ctags/5.8_1/bin/ctags"
 alias gpg=gpg2
 eval $(thefuck --alias)
 
