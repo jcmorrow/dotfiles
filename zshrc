@@ -30,6 +30,8 @@ export DEFAULT_USER="josh"
 
 alias ctags="`brew --prefix`/Cellar/ctags/5.8_1/bin/ctags"
 alias gpg=gpg2
+alias lsd="ls | lolcat"
+alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
 eval $(thefuck --alias)
 
 # make zsh line editing act like vim
@@ -44,8 +46,6 @@ eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
 
 # Wonderful reverse search
 bindkey -v
