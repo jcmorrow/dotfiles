@@ -81,8 +81,6 @@ nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
 let g:airline_theme="papercolor"
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 set laststatus=2
 
 " Disable annoying whitespace indicator
@@ -99,10 +97,16 @@ let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
 " " ALE for syntax warning
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '?'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-set statusline+=%{ALEGetStatusLine()}
+
+call airline#parts#define_function('ALE', 'ALEGetStatusLine')
+call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
+
+let g:airline_section_error = airline#section#create_right(['ALE'])
 
 " GitGutter
 let g:gitgutter_sign_added = '+'
