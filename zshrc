@@ -1,5 +1,5 @@
 # include this repo's bin
-export PATH="/jcmorrow-dotfiles/bin:${PATH}"
+export PATH="$HOME/dotfiles/bin:${PATH}"
 
 # include this repo's functions
 for function in ~/.zsh/functions/*; do

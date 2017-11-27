@@ -1,0 +1,15 @@
+#! /usr/bin/env bash -x
+
+add_work_timestamp()
+{
+  today=$(date +%Y-%m-%d)
+  filename=~/work_timestamps/$today.csv
+
+  if [ ! -f $filename ]; then
+      touch $filename
+  fi
+
+  echo $filename
+
+  echo "$1, $today" >> $filename
+}

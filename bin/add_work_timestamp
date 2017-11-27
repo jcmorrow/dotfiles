@@ -1,0 +1,17 @@
+#!/bin/bash
+
+file=$1
+
+main() {
+  today=$(date +%Y-%m-%d)
+  right_now=$(date +%H:%M:%S)
+  filename=~/work_timestamps/$today.csv
+
+  if [ ! -f $filename ]; then
+      touch $filename
+  fi
+
+  echo "$file, $right_now" >> $filename
+}
+
+main

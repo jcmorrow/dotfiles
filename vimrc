@@ -162,3 +162,7 @@ inoremap <S-Tab> <c-n>
 " Pretty print JSON
 nnoremap <Leader>x :%!xmllint --format %<CR>
 nnoremap <Leader>j :%!python -m json.tool<CR>
+
+" Record a timestamp when I write stuff
+au BufWritePost ~/code/* call job_start(['add_work_timestamp', expand('%:p')],
+      \ {"in_io": "null", "out_io": "null", "err_io": "null"})
