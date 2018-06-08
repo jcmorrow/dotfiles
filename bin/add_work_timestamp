@@ -11,7 +11,7 @@ main() {
       touch $filename
   fi
 
-  echo "$file, $right_now" >> $filename
+  echo "$file, $today $right_now" >> $filename
 }
 
 main

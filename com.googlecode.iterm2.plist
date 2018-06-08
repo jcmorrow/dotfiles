@@ -31384,9 +31384,11 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/jcmorrow-dotfiles</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -31424,23 +31426,27 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>386 64 445 77 0 0 1280 777 </string>
+	<string>387 186 445 77 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>356 321 606 456 0 0 1280 777 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>615 399 400 129 0 0 1280 777 </string>
+	<string>440 493 400 129 0 0 1280 777 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>320 124 640 622 0 0 1280 777 </string>
+	<string>320 123 640 622 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>198 100 918 485 0 0 1280 777 </string>
+	<string>198 97 918 492 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>154 193 592 584 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>640 31 640 746 0 0 1280 777 </string>
+	<string>0 25 1280 747 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 375 570 402 0 0 1280 777 </string>
+	<string>1280 821 665 402 1280 166 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>294 152 650 477 0 0 1280 777 </string>
+	<key>NeverWarnAboutShortLivedSessions_191033DD-0553-4092-B276-9125BAA9A484</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_191033DD-0553-4092-B276-9125BAA9A484_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -32035,7 +32041,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraCode-Medium 12</string>
+			<string>CourierPrime 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -32317,7 +32323,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-15T19:51:55Z</date>
+	<date>2018-02-27T18:57:58Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -32343,7 +32349,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1481125504</real>
+	<real>1518814464</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -32360,10 +32366,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20171031-nightly</string>
+	<string>3.2.20180212-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -13,6 +13,11 @@ set number
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" easytags
+" ----------
+let g:easytags_async = 1
+let g:easytags_cmd = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
@@ -38,7 +43,7 @@ set expandtab
 
 set t_Co=256
 color grb256
-colorscheme pencil
+colorscheme 1989
 set background=light
 
 let g:test#strategy = 'dispatch'
@@ -51,6 +56,7 @@ set scrolloff=999
 map <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the only open buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeIgnore = ['\.pyc$']
 
 " Indent list items correctly
 set autoindent
@@ -97,6 +103,10 @@ let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
 " " ALE for syntax warning
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
