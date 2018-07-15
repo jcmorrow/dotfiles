@@ -43,12 +43,12 @@ set expandtab
 
 set t_Co=256
 color grb256
-colorscheme 1989
+colorscheme onehalflight
 set background=light
+set cursorline
 
 let g:test#strategy = 'dispatch'
 
-:highlight CursorLine gui=underline cterm=underline
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
 
@@ -113,6 +113,10 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
+" Color stuff for ALE
+hi link ALEErrorSign    ErrorMsg
+hi link ALEWarningSign  WarningMsg
+
 call airline#parts#define_function('ALE', 'ALEGetStatusLine')
 call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
 
@@ -176,3 +180,13 @@ nnoremap <Leader>j :%!python -m json.tool<CR>
 " Record a timestamp when I write stuff
 au BufWritePost ~/code/* call job_start(['add_work_timestamp', expand('%:p')],
       \ {"in_io": "null", "out_io": "null", "err_io": "null"})
+
+" Mad science here. Multi-line a single line comma delimited list
+map <C-c> f,a<CR><ESC><C-c>
+
+" Get the name of the highlight groups of the word under cursor
+" For some reason this doesn't return stuff I would expect it to like `spellbad`
+function! SynGroup()
+  let l:s = synID(line('.'), col('.'), 1)
+  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
