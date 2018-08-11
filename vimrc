@@ -1,9 +1,9 @@
+let mapleader = " "
+set backspace=indent,eol,start
+set cc=80
 set nocompatible
 set noswapfile
-let mapleader = " "
-set cc=80
 set textwidth=80
-set backspace=indent,eol,start
 
 " Autowrap markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
