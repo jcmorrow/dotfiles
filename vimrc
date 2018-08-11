@@ -1,12 +1,17 @@
-set nocompatible
-set noswapfile
 let mapleader = " "
-set cc=80
-set textwidth=80
 set backspace=indent,eol,start
+set cc=80
+set incsearch
+set nocompatible
+set noerrorbells
+set noswapfile
+set novisualbell
+set shell=bash
+set textwidth=80
 
-" Autowrap markdown files
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" Auto-detect markdown files
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
 
 set number
 
@@ -15,8 +20,12 @@ nnoremap <leader><leader> <c-^>
 
 " easytags
 " ----------
+set tags=tags
+set path=.
 let g:easytags_async = 1
 let g:easytags_cmd = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+" easy tags is so sloooooowwwwwww
+let g:easytags_python_enabled = 0
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -42,9 +51,7 @@ set shiftround
 set expandtab
 
 set t_Co=256
-color grb256
-colorscheme onehalflight
-set background=light
+colorscheme dim
 set cursorline
 
 let g:test#strategy = 'dispatch'
@@ -64,13 +71,13 @@ set autoindent
 " Don't ask me if I want to load changed files. The answer is "Yes, always"
 :set autoread
 
-" WTF does this do?
-let g:tmux_navigator_no_mappings = 1
+" This has been segfaulting vim recently :(
+" let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " leader d to run the whole spec file
 nnoremap <silent> <Leader>d :TestFile --format doc<CR>
@@ -81,12 +88,16 @@ nnoremap <silent> <Leader>d :TestFile --format doc<CR>
 " leader c to compile the current file and run it
 nnoremap <silent> <Leader>c :Dispatch make %:r<CR>:Dispatch ./%:r<CR>
 
+" leader rr to compile the current rust file and run it
+nnoremap <silent> <Leader>rr :Dispatch rustc %<CR>:Dispatch ./%:r<CR>
+nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
+
 " Leader ra to build a thing and then immediately flash it to the arduino
 " attached to the current project
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
-let g:airline_theme="papercolor"
+let g:airline_theme='nord'
 set laststatus=2
 
 " Disable annoying whitespace indicator
@@ -103,9 +114,19 @@ let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
 " " ALE for syntax warning
+let g:ale_rust_cargo_use_clippy = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+" let g:ale_fixers['javascript'] = ['prettier']
+" let g:ale_fixers['typescript'] = ['prettier']
+let g:ale_fixers['python'] = ['black']
+let g:ale_fixers['rust'] = ['rustfmt']
+let g:ale_fixers['ruby'] = ['rubocop']
+let g:ale_fixers['scss'] = ['stylelint']
+let g:ale_linters = {}
+let g:ale_linters['rust'] = ['cargo', 'rustc']
+let g:ale_linters['ruby'] = ['rubocop']
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
@@ -123,6 +144,8 @@ call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
 let g:airline_section_error = airline#section#create_right(['ALE'])
 
 " GitGutter
+set updatetime=100
+
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
@@ -177,10 +200,6 @@ inoremap <S-Tab> <c-n>
 nnoremap <Leader>x :%!xmllint --format %<CR>
 nnoremap <Leader>j :%!python -m json.tool<CR>
 
-" Record a timestamp when I write stuff
-au BufWritePost ~/code/* call job_start(['add_work_timestamp', expand('%:p')],
-      \ {"in_io": "null", "out_io": "null", "err_io": "null"})
-
 " Mad science here. Multi-line a single line comma delimited list
 map <C-c> f,a<CR><ESC><C-c>
 
@@ -190,3 +209,12 @@ function! SynGroup()
   let l:s = synID(line('.'), col('.'), 1)
   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
+
+hi SpellBad cterm=underline ctermfg=red
+hi Cursor ctermbg=31 guibg=#0184bc ctermfg=0 guifg=#FFFFFF
+
+" I never mean W
+:command W w
+
+" dashes are part of words too
+:set iskeyword+=\-

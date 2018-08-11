@@ -13,12 +13,13 @@
   ci = commit -v
   co = checkout
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
-  d = diff
-  dc = diff --cached
+  d = difftool --no-symlinks --dir-diff
+  dc = difftool --no-symlinks --dir-diff --cached
   fixup = "!git commit --fixup $(git squash-target)"
   l = "!git ll -12"
   la = "!git ll --all"
   ll = "log --graph --pretty='format:%C(yellow)%h %C(green)%ar %C(cyan)%an %C(red)%d %C(reset)%s'"
+  lx = "log --graph --pretty='format:%C(yellow)%h %C(green)%ar %C(cyan)%an %C(reset)%s' -12"
   lt = "!git ll --simplify-by-decoration"
   pf = push --force-with-lease
   s = status -sb
@@ -36,6 +37,17 @@
   excludesfile = ~/.gitignore
   autocrlf = input
   pager = diff-so-fancy | less --tabs=1,5 -R
+
+[diff]
+    tool = kitty
+    guitool = kitty.gui
+[difftool]
+    prompt = false
+    trustExitCode = true
+[difftool "kitty"]
+    cmd = kitty +kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+    cmd = kitty kitty +kitten diff $LOCAL $REMOTE
 
 [fetch]
   prune = true
@@ -57,6 +69,3 @@
 
 [rebase]
   autosquash = true
-[hub]
-	host = https://github.internal.digitalocean.com
-	host = github.internal.digitalocean.com
