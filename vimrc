@@ -5,8 +5,9 @@ set nocompatible
 set noswapfile
 set textwidth=80
 
-" Autowrap markdown files
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" Auto-detect markdown files
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
 
 set number
 
