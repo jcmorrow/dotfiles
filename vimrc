@@ -3,6 +3,7 @@ set backspace=indent,eol,start
 set cc=80
 set nocompatible
 set noswapfile
+set shell=bash
 set textwidth=80
 
 " Auto-detect markdown files
@@ -81,6 +82,10 @@ nnoremap <silent> <Leader>d :TestFile --format doc<CR>
 
 " leader c to compile the current file and run it
 nnoremap <silent> <Leader>c :Dispatch make %:r<CR>:Dispatch ./%:r<CR>
+
+" leader rr to compile the current rust file and run it
+nnoremap <silent> <Leader>rr :Dispatch rustc %<CR>:Dispatch ./%:r<CR>
+nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
 
 " Leader ra to build a thing and then immediately flash it to the arduino
 " attached to the current project
@@ -191,3 +196,6 @@ function! SynGroup()
   let l:s = synID(line('.'), col('.'), 1)
   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
+
+hi SpellBad cterm=underline ctermfg=red
+hi Cursor ctermbg=31 guibg=#0184bc ctermfg=0 guifg=#FFFFFF
