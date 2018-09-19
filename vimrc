@@ -199,3 +199,6 @@ endfun
 
 hi SpellBad cterm=underline ctermfg=red
 hi Cursor ctermbg=31 guibg=#0184bc ctermfg=0 guifg=#FFFFFF
+
+" I never mean W
+:command W w
