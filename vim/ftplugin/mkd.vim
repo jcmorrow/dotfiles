@@ -1,4 +1,5 @@
 setlocal spell
+setlocal nocursorline
 
-hi htmlH2 ctermfg=Cyan cterm=bold
-hi htmlItalic cterm=italic term=italic
+hi htmlH2 ctermfg=Cyan cterm=bold term=bold
+hi htmlItalic cterm=bold term=bold

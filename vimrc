@@ -202,3 +202,6 @@ hi Cursor ctermbg=31 guibg=#0184bc ctermfg=0 guifg=#FFFFFF
 
 " I never mean W
 :command W w
+
+" dashes are part of words too
+:set iskeyword+=\-
