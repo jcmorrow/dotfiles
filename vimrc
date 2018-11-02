@@ -1,8 +1,11 @@
 let mapleader = " "
 set backspace=indent,eol,start
 set cc=80
+set incsearch
 set nocompatible
+set noerrorbells
 set noswapfile
+set novisualbell
 set shell=bash
 set textwidth=80
 
