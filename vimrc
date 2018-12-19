@@ -114,7 +114,9 @@ let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 " " ALE for syntax warning
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['python'] = ['black']
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
