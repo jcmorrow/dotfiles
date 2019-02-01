@@ -4,6 +4,7 @@ set -g -x PATH /usr/local/Cellar/rabbitmq/3.7.7_1/sbin/ $PATH
 set -x LESS '-iMSx4 -RSFX -e'
 
 alias __fzfcmd fzf
+alias fix_postgres 'rm /usr/local/var/postgres/pid'
 alias g git
 alias python3.6 python
 alias sed 'sed -E'
@@ -15,3 +16,7 @@ fish_vi_key_bindings
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -tc^Google)
 end
+
+source $HOME/.poetry/env
+
+pyenv init - | source
