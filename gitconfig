@@ -69,6 +69,3 @@
 
 [rebase]
   autosquash = true
-[hub]
-	host = https://github.internal.digitalocean.com
-	host = github.internal.digitalocean.com
