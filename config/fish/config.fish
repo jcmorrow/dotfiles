@@ -8,6 +8,8 @@ alias fix_postgres 'rm /usr/local/var/postgres/postmaster.pid'
 alias g git
 alias python3.6 python
 alias sed 'sed -E'
+alias vi nvim
+alias vim nvim
 
 status --is-interactive; and source (rbenv init -|psub)
 eval (direnv hook fish)

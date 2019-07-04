@@ -20,6 +20,8 @@ nnoremap <leader><leader> <c-^>
 
 " easytags
 " ----------
+set tags=tags
+set path=.
 let g:easytags_async = 1
 let g:easytags_cmd = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 " easy tags is so sloooooowwwwwww
@@ -49,7 +51,6 @@ set shiftround
 set expandtab
 
 set t_Co=256
-color grb256
 colorscheme onehalflight
 set background=light
 set cursorline
@@ -198,9 +199,10 @@ inoremap <S-Tab> <c-n>
 nnoremap <Leader>x :%!xmllint --format %<CR>
 nnoremap <Leader>j :%!python -m json.tool<CR>
 
-" Record a timestamp when I write stuff
-au BufWritePost ~/code/* call job_start(['add_work_timestamp', expand('%:p')],
-      \ {"in_io": "null", "out_io": "null", "err_io": "null"})
+" Wow I was an insane person
+" " Record a timestamp when I write stuff
+" au BufWritePost ~/code/* call job_start(['add_work_timestamp', expand('%:p')],
+"       \ {"in_io": "null", "out_io": "null", "err_io": "null"})
 
 " Mad science here. Multi-line a single line comma delimited list
 map <C-c> f,a<CR><ESC><C-c>
