@@ -5,6 +5,8 @@ set -x LESS '-iMSx4 -RSFX -e'
 
 alias __fzfcmd fzf
 alias fix_postgres 'rm /usr/local/var/postgres/postmaster.pid'
+alias fix_vs_code_key_repeat 'defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false'
+alias undo_fix_vs_code_key_repeat 'defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true'
 alias g git
 alias python3.6 python
 alias sed 'sed -E'
