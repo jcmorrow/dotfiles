@@ -1,7 +1,9 @@
 set -g -x PATH /usr/local/bin $PATH
 set -g -x PATH /Users/josh/.cargo/bin $PATH
 
+set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
+set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 
 fish_vi_key_bindings
 
@@ -22,6 +24,7 @@ eval (direnv hook fish)
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
+
 
 # Python things
 pyenv init - | source

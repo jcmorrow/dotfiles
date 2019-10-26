@@ -13,8 +13,6 @@
   ci = commit -v
   co = checkout
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
-  d = difftool --no-symlinks --dir-diff
-  dc = difftool --no-symlinks --dir-diff --cached
   fixup = "!git commit --fixup $(git squash-target)"
   l = "!git ll -12"
   la = "!git ll --all"
@@ -33,10 +31,10 @@
   gpgSign = false
 
 [core]
-  editor=/usr/local/bin/vim
+  editor=vim
   excludesfile = ~/.gitignore
   autocrlf = input
-  pager = diff-so-fancy | less --tabs=1,5 -R
+  pager = delta --dark
 
 [diff]
     tool = kitty
