@@ -33,10 +33,10 @@
   gpgSign = false
 
 [core]
-  editor=/usr/local/bin/vim
+  editor=vim
   excludesfile = ~/.gitignore
   autocrlf = input
-  pager = diff-so-fancy | less --tabs=1,5 -R
+  ; pager = diff-so-fancy | less --tabs=1,5 -R
 
 [diff]
     tool = kitty
