@@ -1,6 +1,7 @@
 set -g -x PATH /usr/local/bin $PATH
 set -g -x PATH /Users/josh/.cargo/bin $PATH
 set -g -x PATH /usr/local/Cellar/rabbitmq/3.7.7_1/sbin/ $PATH
+set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
 
 alias __fzfcmd fzf
@@ -10,8 +11,6 @@ alias undo_fix_vs_code_key_repeat 'defaults write com.microsoft.VSCode ApplePres
 alias g git
 alias python3.6 python
 alias sed 'sed -E'
-alias vi nvim
-alias vim nvim
 
 status --is-interactive; and source (rbenv init -|psub)
 eval (direnv hook fish)
@@ -25,6 +24,13 @@ function postgres_log
   tail -f /usr/local/var/log/postgres.log
 end
 
-source $HOME/.poetry/env
+function copy
+  kitty +kitten clipboard
+end
 
-pyenv init - | source
+# set -x NVM_DIR /home/josh/.nvm
+# $NVM_DIR/nvm.sh && $NVM_DIR/nvm.sh
+
+# export PATH="/home/josh/.pyenv/bin:$PATH"
+# eval "(pyenv init)"
+# eval "(pyenv virtualenv-init)"

@@ -1,6 +1,7 @@
 call plug#begin()
 
-Plug '/usr/local/opt/fzf'
+" Plug '/usr/local/opt/fzf'
+Plug '/usr/bin/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'danro/rename.vim'
