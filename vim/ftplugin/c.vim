@@ -1,2 +1,2 @@
-:set autoindent
-:set cindent
+set autoindent
+set cindent

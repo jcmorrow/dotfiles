@@ -1,19 +1,12 @@
 call plug#begin()
 
-Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
-Plug 'chrisbra/Colorizer'
-Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'danro/rename.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'flazz/vim-colorschemes'
 Plug 'janko-m/vim-test'
-Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-emoji'
-Plug 'kchmck/vim-coffee-script'
-Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -25,6 +18,5 @@ Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 call plug#end()
