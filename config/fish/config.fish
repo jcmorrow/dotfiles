@@ -3,6 +3,7 @@ set -g -x PATH /Users/josh/.cargo/bin $PATH
 set -g -x PATH /usr/local/Cellar/rabbitmq/3.7.7_1/sbin/ $PATH
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
+set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 
 alias __fzfcmd fzf
 alias fix_postgres 'rm /usr/local/var/postgres/postmaster.pid'
