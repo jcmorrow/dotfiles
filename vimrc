@@ -52,24 +52,11 @@ set tabstop=2
 " Color scheme stuff. Dim allows the terminal colorscheme to come through
 colorscheme dim
 set cursorline
-hi CursorLine   cterm=NONE ctermbg=black
-
-" airline - set theme and remove awful separators
-let g:airline_theme='nord'
-set laststatus=2
-
-" Disable annoying whitespace indicator
-let g:airline#extensions#whitespace#enabled=0
-
-" Better tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-
-" Better line/column information
-let g:airline_section_b = ""
-let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
+hi ColorColumn cterm=None ctermbg=lightmagenta
+hi Comment ctermfg=darkblue
+hi LineNr ctermfg=lightblue
+hi Search ctermbg=lightblue ctermfg=white
+hi Error ctermbg=red
 
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
@@ -98,7 +85,8 @@ nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
-let g:airline_theme='nord'
+" airline - set theme and remove awful separators
+let g:airline_theme='light'
 set laststatus=2
 
 " Disable annoying whitespace indicator

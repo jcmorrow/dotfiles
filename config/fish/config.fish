@@ -1,9 +1,8 @@
-set -g -x PATH /usr/local/bin $PATH
-set -g -x PATH /Users/josh/.cargo/bin $PATH
+set -gx PATH /usr/local/bin $PATH
+set -gx PATH /Users/josh/.cargo/bin $PATH
 
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
-set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 
 fish_vi_key_bindings
 
@@ -17,6 +16,7 @@ alias fix_postgres 'rm /usr/local/var/postgres/postmaster.pid'
 alias postgres_log 'tail -f /usr/local/var/log/postgres.log'
 
 status --is-interactive; and source (rbenv init -|psub)
+
 eval (direnv hook fish)
 
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
@@ -27,5 +27,5 @@ end
 
 
 # Python things
-pyenv init - | source
-source $HOME/.poetry/env
+# pyenv init - | source
+# source $HOME/.poetry/env
