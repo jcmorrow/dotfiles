@@ -52,10 +52,11 @@ set tabstop=2
 " Color scheme stuff. Dim allows the terminal colorscheme to come through
 colorscheme dim
 set cursorline
-hi CursorLine cterm=NONE ctermbg=lightcyan
-
-hi Search cterm=NONE ctermbg=cyan
-hi Comment cterm=NONE ctermfg=cyan
+hi ColorColumn cterm=None ctermbg=lightmagenta
+hi Comment ctermfg=darkblue
+hi LineNr ctermfg=lightblue
+hi Search ctermbg=lightblue ctermfg=white
+hi Error ctermbg=red
 
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
