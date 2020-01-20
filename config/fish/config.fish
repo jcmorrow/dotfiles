@@ -29,3 +29,4 @@ end
 # Python things
 # pyenv init - | source
 # source $HOME/.poetry/env
+source $HOME/.cargo/env

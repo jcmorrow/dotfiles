@@ -116,12 +116,14 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
 let g:ale_linters['ruby'] = ['rubocop']
-let g:ale_linters['rust'] = ['cargo', 'rustc']
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+let g:ale_rust_cargo_avoid_whole_workspace = 0
+let g:ale_rust_cargo_use_clippy = 1
 
 " Color stuff for ALE
 hi SpellBad cterm=underline ctermbg=None ctermfg=1
