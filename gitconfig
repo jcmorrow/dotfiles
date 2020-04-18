@@ -34,7 +34,6 @@
   editor=vim
   excludesfile = ~/.gitignore
   autocrlf = input
-  pager = delta --theme OneHalfLight
 
 [diff]
     tool = kitty

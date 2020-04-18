@@ -8,6 +8,7 @@ fish_vi_key_bindings
 
 alias g git
 alias __fzfcmd fzf
+
 # Always use modern regexes with sed
 alias sed 'sed -E'
 
@@ -24,8 +25,3 @@ eval (direnv hook fish)
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
-
-
-# Python things
-# pyenv init - | source
-# source $HOME/.poetry/env
