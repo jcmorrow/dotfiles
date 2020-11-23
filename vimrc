@@ -15,6 +15,10 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+if filereadable(expand("~/.cocrc"))
+  source ~/.cocrc
+endif
+
 " Auto-detect markdown files
 au! BufRead,BufNewFile *.markdown set filetype=markdown
 au! BufRead,BufNewFile *.md       set filetype=markdown
@@ -85,7 +89,6 @@ nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
-" airline - set theme and remove awful separators
 let g:airline_theme='light'
 set laststatus=2
 
@@ -101,8 +104,11 @@ let g:airline#extensions#tabline#tab_min_count = 2
 " Better line/column information
 let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
+" The coc extension just spams 'Starting LS languageserver.ruby'
+let g:airline#extensions#coc#enabled = 0
 
 " ALE for linters and autoformatters
+let g:ale_disable_lsp = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
@@ -127,9 +133,9 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 hi SpellBad cterm=underline ctermbg=None ctermfg=1
 hi SpellCap cterm=underline ctermbg=None ctermfg=3
 
-call airline#parts#define_function('ALE', 'ALEGetStatusLine')
-call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
-let g:airline_section_error = airline#section#create_right(['ALE'])
+" call airline#parts#define_function('ALE', 'ALEGetStatusLine')
+" call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
+" let g:airline_section_error = airline#section#create_right(['ALE'])
 
 " GitGutter
 set updatetime=100
@@ -160,20 +166,33 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Pretty print JSON
 nnoremap <Leader>x :%!xmllint --format %<CR>

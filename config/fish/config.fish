@@ -1,5 +1,6 @@
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH /Users/josh/.cargo/bin $PATH
+set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
 
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
@@ -20,8 +21,13 @@ status --is-interactive; and source (rbenv init -|psub)
 
 eval (direnv hook fish)
 
+pyenv init - | source
+
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
 # or chrome
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
+
+# opam configuration
+source /Users/josh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
