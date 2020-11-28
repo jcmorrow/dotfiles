@@ -200,3 +200,5 @@ setopt prompt_subst
 
 PROMPT='$(prompt_shortened_path)$(prompt_full_git_status) $ '
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
