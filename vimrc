@@ -193,6 +193,7 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Pretty print JSON
 nnoremap <Leader>x :%!xmllint --format %<CR>
