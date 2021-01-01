@@ -1,11 +1,12 @@
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH /Users/josh/.cargo/bin $PATH
 set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
+set -gx PATH /Applications/j901/bin $PATH
 
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
 
-set -x J_BIN_FOLDER /Applications/j901/bin  
+set -x J_BIN_FOLDER /Applications/j901/bin
 set -x J_INSTALLATION_FOLDER /Applications/j901/
 
 fish_vi_key_bindings
