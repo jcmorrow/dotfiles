@@ -15,7 +15,9 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+
 if filereadable(expand("~/.cocrc"))
+  au BufRead,BufNewFile *cocrc set filetype=vim
   source ~/.cocrc
 endif
 
