@@ -1,3 +1,4 @@
+set -gx PATH /usr/local/n/ $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH /Users/josh/.cargo/bin $PATH
 set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
