@@ -161,7 +161,6 @@ nnoremap <Leader>f :FZF<CR>
 " https://github.com/junegunn/fzf.vim/issues/121
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor

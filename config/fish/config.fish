@@ -1,8 +1,9 @@
-set -gx PATH /usr/local/n/ $PATH
-set -gx PATH /usr/local/bin $PATH
-set -gx PATH /Users/josh/.cargo/bin $PATH
-set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
 set -gx PATH /Applications/j901/bin $PATH
+set -gx PATH /Users/josh/.cargo/bin $PATH
+set -gx PATH /Users/josh/.local/share/solana/install/active_release/bin $PATH
+set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
+set -gx PATH /usr/local/bin $PATH
+set -gx PATH /usr/local/n/ $PATH
 
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
