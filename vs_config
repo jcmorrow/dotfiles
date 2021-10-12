@@ -1,0 +1,27 @@
+{
+    "workbench.colorTheme": "Noctis Lux",
+    "editor.fontFamily": "Cartograph CF",
+    "editor.tabSize": 2,
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "git.enabled": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80,
+        "editor.quickSuggestions": false
+    },
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": -1,
+}

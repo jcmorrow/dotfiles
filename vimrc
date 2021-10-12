@@ -10,6 +10,8 @@ set number
 set shell=bash
 set smartcase
 set textwidth=80
+set norelativenumber
+set re=0
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -63,6 +65,7 @@ hi Comment ctermfg=darkblue
 hi LineNr ctermfg=lightblue
 hi Search ctermbg=lightblue ctermfg=white
 hi Error ctermbg=red
+hi Conceal ctermfg=lightblue
 
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
@@ -120,6 +123,7 @@ let g:ale_fixers['ruby'] = ['rubocop']
 let g:ale_fixers['rust'] = ['rustfmt']
 let g:ale_fixers['scss'] = ['stylelint']
 let g:ale_fixers['typescript'] = ['prettier']
+let g:ale_fixers['typescriptreact'] = ['prettier']
 let g:ale_fixers['ocaml'] = ['ocamlformat']
 let g:ale_fixers['go'] = ['gofmt']
 let g:ale_javascript_prettier_use_local_config = 1
@@ -127,6 +131,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
 let g:ale_linters['ruby'] = ['rubocop']
 let g:ale_linters['rust'] = ['cargo', 'rustc']
+let g:ale_linters['json'] = []
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
