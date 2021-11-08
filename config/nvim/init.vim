@@ -2,9 +2,72 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
+colorscheme catppuccin-mocha
+
+lua require('leap').add_default_mappings()
+
 lua << EOF
   -- all of the recommended settings from
   -- https://github.com/neovim/nvim-lspconfig
+
+  -- Add additional capabilities supported by nvim-cmp
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  local lspconfig = require('lspconfig')
+
+  -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+  local servers = { 'rust_analyzer', 'tsserver', 'solargraph' }
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      -- on_attach = my_custom_on_attach,
+      capabilities = capabilities,
+    }
+  end
+
+  -- luasnip setup
+  local luasnip = require 'luasnip'
+
+  -- nvim-cmp setup
+  local cmp = require 'cmp'
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
+    }),
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+  }
 
   -- Mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -43,17 +106,21 @@ lua << EOF
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
   }
-  require('lspconfig')['pyright'].setup{
+  lspconfig.pyright.setup{
       on_attach = on_attach,
       flags = lsp_flags,
   }
-  require('lspconfig')['tsserver'].setup{
-      init_options = {
-        npmLocation = '/opt/homebrew/bin/npm',
-      },
+  lspconfig.tsserver.setup{
       on_attach = on_attach,
       flags = lsp_flags,
   }
+
+  lspconfig.solargraph.setup{
+    init_options = {
+      formatting = true
+    }
+  }
+
   require('lspconfig')['rust_analyzer'].setup{
       on_attach = on_attach,
       flags = lsp_flags,
@@ -81,8 +148,27 @@ lua << EOF
         },
       typescript = {
         require("formatter.filetypes.typescript").prettier,
-        }
+      },
+      javascript = {
+        require("formatter.filetypes.javascript").prettier,
+      },
+      ruby = {
+        function ()
+          return {
+            exe = "rubocop",
+            args = {
+              "--fix-layout",
+              "--stdin",
+              util.escape_path(util.get_current_buffer_file_name()),
+              "--format",
+              "files",
+              "--stderr",
+            },
+            stdin = true,
+          }
+        end
       }
     }
+  }
 EOF
 

@@ -14,6 +14,7 @@ set textwidth=80
 set norelativenumber
 set re=0
 set cursorline
+set mouse=a
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -54,11 +55,7 @@ set shiftround
 set shiftwidth=2
 set tabstop=2
 
-set background=dark
-let g:enfocado_style = 'neon'
-colorscheme enfocado
-
-" Keep cursor vertically centered, plucked from @gabebw!
+" Keep cursor vertically centered
 set scrolloff=999
 
 " NERDTree for surfing ze files
@@ -73,21 +70,10 @@ set autoindent
 " Don't ask me if I want to load changed files. The answer is "Yes, always"
 :set autoread
 
-" leader c to compile the current file and run it
-nnoremap <silent> <Leader>c :Dispatch make %:r<CR>:Dispatch ./%:r<CR>
+" I never mean W
+:command W w
 
-" leader rr to compile the current rust file and run it
-nnoremap <silent> <Leader>rr :Dispatch rustc %<CR>:Dispatch ./%:r<CR>
-nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
-
-" Leader ra to build a thing and then immediately flash it to the arduino
-" attached to the current project
-nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
-
-" airline - set theme and remove awful separators
-let g:airline_theme = 'enfocado'
 set laststatus=2
-
 " Disable annoying whitespace indicator
 let g:airline#extensions#whitespace#enabled=0
 
@@ -115,17 +101,14 @@ let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '<'
 
-" copypasta fix for linux/macos
-set clipboard^=unnamed,unnamedplus
-
 " Open the current line in github's UI
 nnoremap <Leader>gc :Gblame<CR><C-W>h:Gbrowse <C-R><C-W><CR>:q<CR>
 
-" Fuzzyfind
-nnoremap <Leader>f :FZF<CR>
-" This makes FZF respect gitignore
-" https://github.com/junegunn/fzf.vim/issues/121
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" Try plenary
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+
+" Live grep
+nnoremap <leader>fw <cmd>Telescope live_grep<cr>
 
 if executable('ag')
   " Use ag over grep
@@ -150,9 +133,6 @@ function! SynGroup()
   let l:s = synID(line('.'), col('.'), 1)
   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
-
-" I never mean W
-:command W w
 
 " dashes are part of words too
 :set iskeyword+=\-

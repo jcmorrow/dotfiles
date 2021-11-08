@@ -25,6 +25,8 @@
   sha = "!git rev-list --max-count 1 HEAD | tr -d '\n' | pbcopy"
   up = !git fetch origin && git rebase origin/master
 
+[checkout]
+defaultRemote=origin
 
 [color]
   ui = auto
@@ -32,7 +34,7 @@
   gpgSign = false
 
 [core]
-  editor=vim
+  editor=nvim
   excludesfile = ~/.gitignore
   autocrlf = input
 
