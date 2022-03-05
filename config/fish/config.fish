@@ -2,13 +2,13 @@ set -gx PATH /Applications/j901/bin $PATH
 set -gx PATH /Users/josh/.cargo/bin $PATH
 set -gx PATH /Users/josh/.local/share/solana/install/active_release/bin $PATH
 set -gx PATH /Users/josh/Library/Android/sdk/platform-tools $PATH
+set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH /usr/local/n $PATH
 set -gx PATH ~/google-cloud-sdk/bin $PATH
 
 set -gx GOPATH $HOME/go
 set -gx GOROOT $HOME/.go
-
 set -gx PATH $GOPATH/bin $PATH
 
 alias gvm="$GOPATH/bin/g"
@@ -59,3 +59,6 @@ end
 # opam configuration
 source /Users/josh/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
+
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/josh/google-cloud-sdk/path.fish.inc' ]; . '/Users/josh/google-cloud-sdk/path.fish.inc'; end
