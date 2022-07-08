@@ -13,6 +13,9 @@ set -gx PATH $GOPATH/bin $PATH
 
 alias gvm="$GOPATH/bin/g"
 
+# Let's try this out, shall we?
+alias vim="nvim"
+
 set -x EDITOR vim
 set -x LESS '-iMSx4 -RSFX -e'
 

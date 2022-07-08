@@ -7,7 +7,7 @@ set noerrorbells
 set noswapfile
 set novisualbell
 set number
-set shell=bash
+set shell=fish
 set smartcase
 set textwidth=80
 set norelativenumber
@@ -17,11 +17,6 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
-
-if filereadable(expand("~/.cocrc"))
-  au BufRead,BufNewFile *cocrc set filetype=vim
-  source ~/.cocrc
-endif
 
 " Auto-detect markdown files
 au! BufRead,BufNewFile *.markdown set filetype=markdown
@@ -58,14 +53,13 @@ set shiftwidth=2
 set tabstop=2
 
 " Color scheme stuff. Dim allows the terminal colorscheme to come through
-colorscheme dim
 set cursorline
-hi ColorColumn cterm=None ctermbg=lightmagenta
-hi Comment ctermfg=darkblue
-hi LineNr ctermfg=lightblue
-hi Search ctermbg=lightblue ctermfg=white
-hi Error ctermbg=red
-hi Conceal ctermfg=lightblue
+" hi ColorColumn cterm=None ctermbg=lightmagenta
+" hi Comment ctermfg=darkblue
+" hi LineNr ctermfg=lightblue
+" hi Search ctermbg=lightblue ctermfg=white
+" hi Error ctermbg=red
+" hi Conceal ctermfg=lightblue
 
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
@@ -94,7 +88,7 @@ nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
-let g:airline_theme='light'
+let g:airline_theme='luna'
 set laststatus=2
 
 " Disable annoying whitespace indicator
@@ -109,8 +103,6 @@ let g:airline#extensions#tabline#tab_min_count = 2
 " Better line/column information
 let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
-" The coc extension just spams 'Starting LS languageserver.ruby'
-let g:airline#extensions#coc#enabled = 0
 
 " ALE for linters and autoformatters
 let g:ale_disable_lsp = 1
@@ -173,35 +165,6 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Pretty print JSON
 nnoremap <Leader>x :%!xmllint --format %<CR>
