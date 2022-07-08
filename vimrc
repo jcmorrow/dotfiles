@@ -104,35 +104,10 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
-" ALE for linters and autoformatters
-let g:ale_disable_lsp = 1
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {}
-let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['python'] = ['black']
-let g:ale_fixers['ruby'] = ['rubocop']
-let g:ale_fixers['rust'] = ['rustfmt']
-let g:ale_fixers['scss'] = ['stylelint']
-let g:ale_fixers['typescript'] = ['prettier']
-let g:ale_fixers['typescriptreact'] = ['prettier']
-let g:ale_fixers['ocaml'] = ['ocamlformat']
-let g:ale_fixers['go'] = ['gofmt']
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {}
-let g:ale_linters['ruby'] = ['rubocop']
-let g:ale_linters['rust'] = ['cargo', 'rustc']
-let g:ale_linters['json'] = []
-let g:ale_rust_cargo_use_clippy = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-
-" Color stuff for ALE
-hi SpellBad cterm=underline ctermbg=None ctermfg=1
-hi SpellCap cterm=underline ctermbg=None ctermfg=3
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
 
 " call airline#parts#define_function('ALE', 'ALEGetStatusLine')
 " call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')

@@ -37,7 +37,6 @@ lua << EOF
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
   end
 
   local lsp_flags = {
@@ -63,6 +62,27 @@ lua << EOF
         ["rust-analyzer"] = {}
       }
   }
+  -- Some debug logging when lsp is acting up
   -- vim.lsp.set_log_level("debug")
+
+  -- Utilities for creating configurations
+  local util = require "formatter.util"
+
+  -- Provides the Format and FormatWrite commands
+  require("formatter").setup {
+    -- Enable or disable logging
+    logging = true,
+    -- Set the log level
+    log_level = vim.log.levels.WARN,
+    -- All formatter configurations are opt-in
+    filetype = {
+      typescriptreact = {
+        require("formatter.filetypes.typescriptreact").prettier,
+        },
+      typescript = {
+        require("formatter.filetypes.typescript").prettier,
+        }
+      }
+    }
 EOF
 
