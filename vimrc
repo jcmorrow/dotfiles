@@ -9,9 +9,11 @@ set novisualbell
 set number
 set shell=fish
 set smartcase
+set termguicolors
 set textwidth=80
 set norelativenumber
 set re=0
+set cursorline
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -52,14 +54,9 @@ set shiftround
 set shiftwidth=2
 set tabstop=2
 
-" Color scheme stuff. Dim allows the terminal colorscheme to come through
-set cursorline
-" hi ColorColumn cterm=None ctermbg=lightmagenta
-" hi Comment ctermfg=darkblue
-" hi LineNr ctermfg=lightblue
-" hi Search ctermbg=lightblue ctermfg=white
-" hi Error ctermbg=red
-" hi Conceal ctermfg=lightblue
+set background=dark
+let g:enfocado_style = 'neon'
+colorscheme enfocado
 
 " Keep cursor vertically centered, plucked from @gabebw!
 set scrolloff=999
@@ -88,7 +85,7 @@ nnoremap <silent> <Leader>rt :Dispatch rustc --test %<CR>:Dispatch ./%:r<CR>
 nnoremap <silent> <Leader>ra :!platformio run -t upload<CR>
 
 " airline - set theme and remove awful separators
-let g:airline_theme='luna'
+let g:airline_theme = 'enfocado'
 set laststatus=2
 
 " Disable annoying whitespace indicator
@@ -104,14 +101,11 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_b = ""
 let g:airline_section_z = "%#__accent_bold#%l%#__restore__#:%c"
 
+" Auto-format on write
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost * FormatWrite
 augroup END
-
-" call airline#parts#define_function('ALE', 'ALEGetStatusLine')
-" call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
-" let g:airline_section_error = airline#section#create_right(['ALE'])
 
 " GitGutter
 set updatetime=100
