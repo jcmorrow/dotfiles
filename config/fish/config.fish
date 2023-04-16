@@ -9,9 +9,12 @@ set -gx GOPATH $HOME/go
 set -gx GOROOT $HOME/.go
 set -gx PATH $GOPATH/bin $PATH
 
+set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+
 alias gvm="$GOPATH/bin/g"
 
 alias vim="nvim"
+alias vi="nvim"
 
 set -x EDITOR nvim
 set -x LESS '-iMSx4 -RSFX -e'
