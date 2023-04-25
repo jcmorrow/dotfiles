@@ -11,21 +11,8 @@ return require("packer").startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } },
   })
 
-  use({
-    "catppuccin/vim",
-    as = "catpuccin",
-    config = function()
-      vim.cmd("colorscheme catppuccin_mocha")
-    end,
-  })
-
-  use({
-    "rose-pine/neovim",
-    as = "rose-pine",
-    config = function()
-      vim.cmd("colorscheme rose-pine")
-    end,
-  })
+  use({ "catppuccin/vim", as = "catpuccin" })
+  use({ "rose-pine/neovim", as = "rose-pine" })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "nvim-treesitter/playground", run = ":TSUpdate" })
@@ -56,4 +43,6 @@ return require("packer").startup(function(use)
       { "L3MON4D3/LuaSnip" }, -- Required
     },
   })
+
+  use({ "folke/trouble.nvim" })
 end)
