@@ -6,7 +6,6 @@ set -gx AWS_DEFAULT_PROFILE ReplayProdDev
 set -gx PATH ~/google-cloud-sdk/bin $PATH
 
 set -gx GOPATH $HOME/go
-set -gx GOROOT $HOME/.go
 set -gx PATH $GOPATH/bin $PATH
 
 set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
@@ -41,17 +40,10 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
-if command -v direnv > /dev/null
-  pyenv init - | source
-end
-
-if command -v nvm > /dev/null
-  nvm use 18
-end
+nvm use 18 --silent
 
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
 # or chrome
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
-

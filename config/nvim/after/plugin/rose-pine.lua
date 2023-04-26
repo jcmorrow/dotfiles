@@ -1,6 +1,5 @@
 require("rose-pine").setup({
-  variant = "moon",
-  dark_variant = "moon",
+  -- dark_variant = "moon",
   bold_vert_split = false,
   dim_nc_background = false,
   disable_background = false,
