@@ -17,6 +17,9 @@ formatter.setup({
     rust = {
       require("formatter.filetypes.rust").rustfmt,
     },
+    go = {
+      require("formatter.filetypes.go").gofmt,
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
     },
