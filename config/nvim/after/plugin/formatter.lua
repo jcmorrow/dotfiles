@@ -1,5 +1,3 @@
-Now using Node v19.9.0 (npm 9.6.3) /opt/homebrew/Cellar/node/19.9.0/bin/node
-Now using Node v19.9.0 (npm 9.6.3) /opt/homebrew/Cellar/node/19.9.0/bin/node
 local vim = vim
 local formatter = require("formatter")
 

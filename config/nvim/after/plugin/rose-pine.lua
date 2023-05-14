@@ -1,4 +1,5 @@
 require("rose-pine").setup({
+  variant = "dawn",
   -- dark_variant = "moon",
   bold_vert_split = false,
   dim_nc_background = false,
@@ -45,3 +46,5 @@ require("rose-pine").setup({
 
 -- Set colorscheme after options
 vim.cmd("colorscheme rose-pine")
+
+-- require("boo-colorscheme").use({ theme = "forest_stream" })
