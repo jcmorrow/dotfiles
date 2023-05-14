@@ -43,21 +43,23 @@ return require("packer").startup(function(use)
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" }, -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },     -- Required
+      { "L3MON4D3/LuaSnip" }, -- Required
     },
   })
 
   -- use({
   --   "ray-x/navigator.lua",
   --   requires = {
-  --     { "ray-x/guihua.lua",     run = "cd lua/fzy && make" },
+  --     { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
   --     { "neovim/nvim-lspconfig" },
   --   },
   -- })
 
   use({ "folke/trouble.nvim" })
+  use({ "folke/which-key.nvim" })
+
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -67,7 +69,6 @@ return require("packer").startup(function(use)
       "MunifTanjim/nui.nvim",
     },
   })
-  use({ "folke/which-key.nvim" })
 
   use({ "ThePrimeagen/harpoon" })
 end)

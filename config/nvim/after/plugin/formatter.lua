@@ -14,6 +14,9 @@ formatter.setup({
     typescript = {
       require("formatter.filetypes.typescript").prettierd,
     },
+    typescriptreact = {
+      require("formatter.filetypes.typescript").prettierd,
+    },
     rust = {
       require("formatter.filetypes.rust").rustfmt,
     },
