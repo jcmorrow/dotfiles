@@ -25,6 +25,7 @@ return require("packer").startup(function(use)
   use({ "junegunn/goyo.vim" })
 
   use({ "mhartington/formatter.nvim" })
+  use({ "bakpakin/janet.vim" })
 
   use({
     "VonHeikemen/lsp-zero.nvim",

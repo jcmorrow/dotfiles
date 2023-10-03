@@ -1,4 +1,5 @@
 set -gx PATH /Users/josh/.cargo/bin $PATH
+set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
 
 set -gx AWS_DEFAULT_PROFILE ReplayProdDev
