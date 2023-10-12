@@ -14,6 +14,7 @@ return require("packer").startup(function(use)
 
   use({ "catppuccin/vim", as = "catpuccin" })
   use({ "rose-pine/neovim", as = "rose-pine" })
+  use({ "sainnhe/everforest", as = "everforest" })
   use({ "rockerBOO/boo-colorscheme-nvim" })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -62,7 +63,8 @@ return require("packer").startup(function(use)
 
   use({
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    as = "neo-tree",
+    branch = "v3.x",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended

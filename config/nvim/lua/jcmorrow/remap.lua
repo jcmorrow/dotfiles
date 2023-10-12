@@ -1,5 +1,7 @@
 local vim = vim
-vim.keymap.set("n", "<C-n>", vim.cmd.Neotree)
+vim.keymap.set("n", "<C-n>", function()
+  pcall(vim.cmd.Neotree, "toggle")
+end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

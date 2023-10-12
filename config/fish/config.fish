@@ -34,13 +34,13 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
+set --universal nvm_default_version v18.16.1
+
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
 # or chrome
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
-
-fish_config theme choose "Rosé Pine Dawn"
 
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/sbin $PATH
