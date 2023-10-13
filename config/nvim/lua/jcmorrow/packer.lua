@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
 
   use({ "catppuccin/vim", as = "catpuccin" })
   use({ "rose-pine/neovim", as = "rose-pine" })
-  use({ "sainnhe/everforest", as = "everforest" })
+  use({ "neanias/everforest-nvim", as = "everforest" })
   use({ "rockerBOO/boo-colorscheme-nvim" })
   use({ "EdenEast/nightfox.nvim", as = "nightfox" })
 
@@ -45,9 +45,9 @@ return require("packer").startup(function(use)
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" }, -- Required
+      { "hrsh7th/nvim-cmp" },     -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" }, -- Required
+      { "L3MON4D3/LuaSnip" },     -- Required
     },
   })
 
