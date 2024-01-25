@@ -14,6 +14,13 @@ return require("packer").startup(function(use)
 
   use({ "catppuccin/vim", as = "catpuccin" })
   use({ "rose-pine/neovim", as = "rose-pine" })
+  use({
+    "folke/tokyonight.nvim",
+    as = "tokyo-night",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  })
   use({ "neanias/everforest-nvim", as = "everforest" })
   use({ "rockerBOO/boo-colorscheme-nvim" })
   use({ "EdenEast/nightfox.nvim", as = "nightfox" })

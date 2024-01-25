@@ -17,6 +17,8 @@ set -gx PATH /Applications/j903/bin $PATH
 set -x J_BIN_FOLDER /Applications/j903/bin
 set -x J_INSTALLATION_FOLDER /Applications/j903/
 
+source ~/.config/fish/themes/tokyo-night-storm.theme
+
 fish_vi_key_bindings
 
 bind -M insert \cr history-pager

@@ -11,6 +11,8 @@ lsp.format_on_save({
   },
 })
 
+local lspconfig = require("lspconfig")
+
 lsp.setup()
 
 local cmp = require("cmp")
