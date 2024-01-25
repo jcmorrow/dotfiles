@@ -33,5 +33,5 @@
   },
   "[ruby]": {
     "editor.defaultFormatter": "misogi.ruby-rubocop"
-  },
+  }
 }
