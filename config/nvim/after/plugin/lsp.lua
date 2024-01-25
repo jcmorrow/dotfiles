@@ -63,6 +63,7 @@ cmp.setup({
       end
     end, { "i", "s" }),
     ["<Esc>"] = cmp.mapping.abort(),
+    ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
