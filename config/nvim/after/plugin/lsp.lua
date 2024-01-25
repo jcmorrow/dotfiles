@@ -11,9 +11,7 @@ lsp.format_on_save({
   },
 })
 
-local lspconfig = require("lspconfig")
-
-lsp.setup()
+lsp.setup({})
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
