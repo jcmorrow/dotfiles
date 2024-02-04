@@ -7,8 +7,10 @@ set -gx AWS_DEFAULT_PROFILE ReplayProdDev
 set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
+# Wow, you sure do like vim.
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 
 set -x EDITOR nvim
 set -x LESS '-iMSx4 -RSFX -e'
@@ -24,6 +26,11 @@ fish_vi_key_bindings
 bind -M insert \cr history-pager
 
 alias g git
+
+alias code 'cd ~/code'
+alias dotfiles 'cd ~/dotfiles'
+alias bac 'cd ~/code/replay/backend'
+alias devtools 'cd ~/code/replay/devtools/'
 
 # Always use modern regexes with sed
 alias sed 'sed -E'
