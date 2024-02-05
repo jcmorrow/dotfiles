@@ -7,6 +7,8 @@ set -gx AWS_DEFAULT_PROFILE ReplayProdDev
 set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
+set -g fish_greeting
+
 # Wow, you sure do like vim.
 alias vim="nvim"
 alias vi="nvim"
@@ -53,3 +55,6 @@ end
 
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/sbin $PATH
+
+# opam configuration
+source /Users/joshuamorrow/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

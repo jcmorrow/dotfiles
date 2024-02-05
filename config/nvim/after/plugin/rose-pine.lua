@@ -45,3 +45,4 @@ require("rose-pine").setup({
 })
 
 -- require("boo-colorscheme").use({ theme = "forest_stream" })
+vim.cmd([[colorscheme catppuccin_mocha]])

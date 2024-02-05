@@ -1,1 +1,1 @@
-vim.cmd([[colorscheme embark]])
+-- vim.cmd([[colorscheme embark]])
