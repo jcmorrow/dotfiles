@@ -94,4 +94,3 @@
 -- })
 
 -- require("boo-colorscheme").use({ theme = "forest_stream" })
-vim.cmd([[colorscheme tokyonight-storm]])

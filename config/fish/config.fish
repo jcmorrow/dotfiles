@@ -8,6 +8,7 @@ set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
 set -g fish_greeting
+set -gx __fish_git_prompt_char_cleanstate '✅'
 
 # Wow, you sure do like vim.
 alias vim="nvim"
@@ -20,8 +21,6 @@ set -x LESS '-iMSx4 -RSFX -e'
 set -gx PATH /Applications/j903/bin $PATH
 set -x J_BIN_FOLDER /Applications/j903/bin
 set -x J_INSTALLATION_FOLDER /Applications/j903/
-
-source ~/.config/fish/themes/tokyo-night-storm.theme
 
 fish_vi_key_bindings
 

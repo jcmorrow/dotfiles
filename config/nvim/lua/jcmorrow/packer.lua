@@ -5,19 +5,14 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
-  -- use({
-  --   "nvim-telescope/telescope.nvim",
-  --   tag = "0.1.5",
-  --   requires = { { "nvim-lua/plenary.nvim" } },
-  -- })
   use({
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     requires = { "nvim-tree/nvim-web-devicons" },
   })
 
   use({ "catppuccin/vim", as = "catpuccin" })
   use({ "rose-pine/neovim", as = "rose-pine" })
+  use({ "marko-cerovac/material.nvim", as = "material" })
   use({
     "folke/tokyonight.nvim",
     as = "tokyo-night",
