@@ -8,7 +8,7 @@ set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
 set -g fish_greeting
-set -gx __fish_git_prompt_char_cleanstate '✅'
+set -gx __fish_git_prompt_char_cleanstate ''
 
 # Wow, you sure do like vim.
 alias vim="nvim"
