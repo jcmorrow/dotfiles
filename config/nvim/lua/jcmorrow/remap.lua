@@ -1,6 +1,25 @@
 local vim = vim
+
+local function vim_opt_toggle(opt, on, off, name)
+  local message = name
+  if vim.opt[opt]:get() == off then
+    vim.opt[opt] = on
+    message = message .. " enabled"
+  else
+    vim.opt[opt] = off
+    message = message .. " disabled"
+  end
+  vim.notify(message)
+end
+
 vim.keymap.set("n", "<C-n>", function()
   pcall(vim.cmd.Neotree, "toggle")
+end)
+vim.keymap.set("n", "<C-m>", function()
+  vim_opt_toggle("number", true, false, "Line number")
+end)
+vim.keymap.set("n", "<C-,>", function()
+  vim_opt_toggle("relativenumber", true, false, "Relative line number")
 end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
