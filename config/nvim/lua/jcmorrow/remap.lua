@@ -15,7 +15,7 @@ end
 vim.keymap.set("n", "<C-n>", function()
   pcall(vim.cmd.Neotree, "toggle")
 end)
-vim.keymap.set("n", "<C-m>", function()
+vim.keymap.set("n", "<C-.>", function()
   vim_opt_toggle("number", true, false, "Line number")
 end)
 vim.keymap.set("n", "<C-,>", function()
