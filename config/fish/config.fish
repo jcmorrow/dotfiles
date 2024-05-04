@@ -57,3 +57,20 @@ set -gx PATH /opt/homebrew/sbin $PATH
 
 # opam configuration
 source /Users/joshuamorrow/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# atuin
+atuin init fish | source
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm
+set -gx PNPM_HOME "/Users/josh/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# sst
+fish_add_path /Users/josh/.sst/bin
