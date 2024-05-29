@@ -1,6 +1,8 @@
-set -gx PATH /Users/josh/.cargo/bin $PATH
+set -gx PATH ~/.cargo/bin $PATH
 set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
+set -gx PATH ~/code/replay/depot_tools/ $PATH
 set -gx PATH /usr/local/bin $PATH
+set -gx PATH /Users/joshuamorrow/.deno/bin/ $PATH
 
 set -gx AWS_DEFAULT_PROFILE ReplayProdDev
 
@@ -30,8 +32,10 @@ alias g git
 
 alias code 'cd ~/code'
 alias dotfiles 'cd ~/dotfiles'
+alias replay 'cd ~/code/replay'
 alias bac 'cd ~/code/replay/backend'
 alias devtools 'cd ~/code/replay/devtools/'
+alias dashboard 'cd ~/code/replay/dashboard/'
 
 # Always use modern regexes with sed
 alias sed 'sed -E'
@@ -73,4 +77,4 @@ end
 # pnpm end
 
 # sst
-fish_add_path /Users/josh/.sst/bin
+fish_add_path ~/.sst/bin

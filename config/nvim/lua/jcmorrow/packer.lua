@@ -20,12 +20,8 @@ return require("packer").startup(function(use)
     priority = 1000,
     opts = {},
   })
-  use({
-    "embark-theme/vim",
-    as = "embark",
-  })
+  use({ "embark-theme/vim", as = "embark" })
   use({ "neanias/everforest-nvim", as = "everforest" })
-  use({ "rockerBOO/boo-colorscheme-nvim" })
   use({ "EdenEast/nightfox.nvim", as = "nightfox" })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -55,9 +51,9 @@ return require("packer").startup(function(use)
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" }, -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },     -- Required
+      { "L3MON4D3/LuaSnip" }, -- Required
     },
   })
 

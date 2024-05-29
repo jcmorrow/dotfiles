@@ -11,6 +11,9 @@ formatter.setup({
     ruby = {
       require("formatter.filetypes.ruby").rubocop,
     },
+    javascript = {
+      require("formatter.filetypes.typescript").prettierd,
+    },
     typescript = {
       require("formatter.filetypes.typescript").prettierd,
     },

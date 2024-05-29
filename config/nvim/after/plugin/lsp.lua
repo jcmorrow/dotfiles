@@ -11,7 +11,39 @@ lsp.format_on_save({
   },
 })
 
+require("lspconfig").gleam.setup({})
+
 lsp.setup({})
+
+-------------------------------------------------------------------------------
+-- on every lsp attach it does a check for deno app if so closes tsserver
+-- this allows tsserver to start on single .ts files
+
+lsp.on_attach(function(client)
+  if
+    vim.fs.dirname(
+      vim.fs.find({ "deno.json", "import_map.json" }, { upward = true })[1]
+    )
+  then
+    if client.name == "tsserver" then
+      client.stop()
+      return
+    end
+  end
+end)
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
+
+-- Just need to set the directory for denols to startup in
+-- if it detects either files thats what it will do
+lsp.configure("denols", {
+  root_dir = vim.fs.dirname(
+    vim.fs.find({ "deno.json", "import_map.json" }, { upward = true })[1]
+  ),
+})
+-------------------------------------------------------------------------------
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
