@@ -1,6 +1,5 @@
 set -gx PATH ~/.cargo/bin $PATH
 set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
-set -gx PATH ~/code/replay/depot_tools/ $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH /Users/joshuamorrow/.deno/bin/ $PATH
 
@@ -32,10 +31,6 @@ alias g git
 
 alias code 'cd ~/code'
 alias dotfiles 'cd ~/dotfiles'
-alias replay 'cd ~/code/replay'
-alias bac 'cd ~/code/replay/backend'
-alias devtools 'cd ~/code/replay/devtools/'
-alias dashboard 'cd ~/code/replay/dashboard/'
 
 # Always use modern regexes with sed
 alias sed 'sed -E'
@@ -76,5 +71,6 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-# sst
-fish_add_path ~/.sst/bin
+# rust
+source "$HOME/.cargo/env.fish"
+>>>>>>> 0e52c9d (Change theme)
