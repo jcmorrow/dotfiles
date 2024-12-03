@@ -1,7 +1,8 @@
-set -gx PATH ~/.cargo/bin $PATH
+set -gx PATH /opt/homebrew/bin $PATH
+set -gx PATH /opt/homebrew/sbin $PATH
+set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/.deno/bin/ $PATH
-set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
 
 set -gx AWS_DEFAULT_PROFILE ReplayProdDev
@@ -44,6 +45,12 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
+if command -v pyenv > /dev/null
+  set -x PYENV_ROOT_HOME $HOME/.pyenv
+  set -gx PATH $PYENV_ROOT_HOME/bin $PATH
+  pyenv init - | source
+end
+
 set --universal nvm_default_version v18.16.1
 
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
@@ -51,9 +58,6 @@ set --universal nvm_default_version v18.16.1
 function kill_server
   kill -9 (lsof -i tcp:$argv[1] -t -c^Google -c^firefox)
 end
-
-set -gx PATH /opt/homebrew/bin $PATH
-set -gx PATH /opt/homebrew/sbin $PATH
 
 # opam configuration
 source ~/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
