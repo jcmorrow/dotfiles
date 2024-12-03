@@ -56,7 +56,7 @@ set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/sbin $PATH
 
 # opam configuration
-source /Users/joshuamorrow/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source ~/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # atuin
 atuin init fish | source
