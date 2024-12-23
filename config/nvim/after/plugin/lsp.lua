@@ -13,6 +13,8 @@ lsp.format_on_save({
 
 require("lspconfig").gleam.setup({})
 
+require("lspconfig").ocamllsp.setup({})
+
 lsp.setup({})
 
 -------------------------------------------------------------------------------
@@ -21,9 +23,9 @@ lsp.setup({})
 
 lsp.on_attach(function(client)
   if
-    vim.fs.dirname(
-      vim.fs.find({ "deno.json", "import_map.json" }, { upward = true })[1]
-    )
+      vim.fs.dirname(
+        vim.fs.find({ "deno.json", "import_map.json" }, { upward = true })[1]
+      )
   then
     if client.name == "tsserver" then
       client.stop()
