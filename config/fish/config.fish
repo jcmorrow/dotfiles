@@ -51,7 +51,7 @@ if command -v pyenv > /dev/null
   pyenv init - | source
 end
 
-set --universal nvm_default_version v18.16.1
+load_nvm > /dev/stderr
 
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
 # or chrome
