@@ -46,3 +46,32 @@ vim.keymap.set(
   "<leader>s",
   ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>"
 )
+
+-- vim.api.nvim_create_user_command("DuneTest", function()
+--   vim.cmd("split | terminal dune test")
+-- end, {})
+vim.api.nvim_create_user_command("DuneTest", function()
+  -- Run dune test and capture the exit code
+  --
+  local output = vim.fn.system("dune test")
+  local exit_code = vim.v.shell_error
+
+  -- Only show split if there was an error (non-zero exit code)
+  if exit_code ~= 0 then
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, "\n"))
+    vim.cmd("split")
+    vim.api.nvim_win_set_buf(0, buf)
+    vim.api.nvim_set_option_value("filetype", "diff", { buf = buf })
+  else
+    print("All tests passed!")
+  end
+end, {})
+
+vim.api.nvim_create_user_command("DuneTestUpdate", function()
+  vim.fn.system("dune test --auto-promote")
+  vim.cmd("checktime")
+end, {})
+
+vim.keymap.set("n", "<leader>t", ":DuneTest<CR>", { silent = true })
+vim.keymap.set("n", "<leader>T", ":DuneTestUpdate<CR>", { silent = true })

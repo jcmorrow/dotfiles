@@ -29,3 +29,5 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 50
 vim.opt.clipboard = "unnamed"
+
+vim.opt.showmatch = true

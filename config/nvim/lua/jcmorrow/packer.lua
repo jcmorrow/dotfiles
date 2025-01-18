@@ -10,6 +10,8 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons" },
   })
 
+  use({ "sputnick1124/uiua.vim" })
+
   use({ "catppuccin/vim", as = "catpuccin" })
   use({ "rose-pine/neovim", as = "rose-pine" })
   use({ "marko-cerovac/material.nvim", as = "material" })
