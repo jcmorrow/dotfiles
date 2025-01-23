@@ -1,0 +1,11 @@
+copy-on-select = clipboard
+font-family = "Berkeley Mono"
+theme = "catppuccin-frappe"
+
+# Cmd + Enter to open a new split, mimics Kitty
+keybind = super+enter=new_split:auto
+# Cmd + d-pad to move around splits
+keybind = super+right=goto_split:right
+keybind = super+left=goto_split:left
+keybind = super+down=goto_split:bottom
+keybind = super+up=goto_split:top
