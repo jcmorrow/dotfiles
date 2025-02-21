@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
   use({ "neanias/everforest-nvim", as = "everforest" })
   use({ "EdenEast/nightfox.nvim", as = "nightfox" })
 
+  use({ "towolf/vim-helm" })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "nvim-treesitter/playground", run = ":TSUpdate" })
   use({ "mbbill/undotree" })

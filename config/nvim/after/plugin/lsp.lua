@@ -12,8 +12,9 @@ lsp.format_on_save({
 })
 
 require("lspconfig").gleam.setup({})
-
+require("lspconfig").uiua.setup({})
 require("lspconfig").ocamllsp.setup({})
+require("lspconfig").helm_ls.setup({})
 
 lsp.setup({})
 
