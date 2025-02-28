@@ -75,3 +75,14 @@ end, {})
 
 vim.keymap.set("n", "<leader>t", ":DuneTest<CR>", { silent = true })
 vim.keymap.set("n", "<leader>T", ":DuneTestUpdate<CR>", { silent = true })
+
+vim.keymap.set('n', '<leader>e', function()
+  vim.diagnostic.goto_next()
+  vim.diagnostic.open_float()
+end, { noremap=true, silent=true })
+
+
+vim.keymap.set('n', '<leader>E', function()
+  vim.diagnostic.goto_prev()
+  vim.diagnostic.open_float()
+end, { noremap=true, silent=true })
