@@ -38,7 +38,7 @@ alias dotfiles 'cd ~/dotfiles'
 # Always use modern regexes with sed
 alias sed 'sed -E'
 
-if command -v rbenv > /dev/null
+if command -v rbenv > /dev/null && test -z "$IN_NIX_SHELL"
   status --is-interactive; and source (rbenv init -|psub)
 end
 
@@ -46,7 +46,7 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
-if command -v pyenv > /dev/null
+if command -v pyenv > /dev/null && test -z "$IN_NIX_SHELL"
   set -x PYENV_ROOT_HOME $HOME/.pyenv
   set -gx PATH $PYENV_ROOT_HOME/bin $PATH
   pyenv init - | source
@@ -79,3 +79,5 @@ end
 
 # rust
 source "$HOME/.cargo/env.fish"
+
+source ~/.config/fish/functions/fish_prompt.fish
