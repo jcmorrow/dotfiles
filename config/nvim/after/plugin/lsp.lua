@@ -15,6 +15,7 @@ require("lspconfig").gleam.setup({})
 require("lspconfig").uiua.setup({})
 require("lspconfig").ocamllsp.setup({})
 require("lspconfig").helm_ls.setup({})
+require("lspconfig").nickel_ls.setup({})
 require("lspconfig").pyright.setup({
   before_init = function(_, config)
     -- Run the 'which python' command and capture its output
