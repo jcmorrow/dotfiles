@@ -6,8 +6,6 @@ set -gx PATH ~/.deno/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH ~/go/bin $PATH
 
-set -gx AWS_DEFAULT_PROFILE ReplayProdDev
-
 set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
