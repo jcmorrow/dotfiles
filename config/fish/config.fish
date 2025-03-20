@@ -44,12 +44,6 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
-if command -v pyenv > /dev/null && test -z "$IN_NIX_SHELL"
-  set -x PYENV_ROOT_HOME $HOME/.pyenv
-  set -gx PATH $PYENV_ROOT_HOME/bin $PATH
-  pyenv init - | source
-end
-
 load_nvm > /dev/stderr
 
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
