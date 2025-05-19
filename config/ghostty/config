@@ -1,7 +1,9 @@
 copy-on-select = clipboard
-font-family = "Berkeley Mono"
+font-family = "Geist Mono Light"
+font-size = 14
 # theme = "rose-pine-dawn"
-theme = "rose-pine-moon"
+# theme = "rose-pine-moon"
+theme = "everforest-dark"
 
 # Cmd + Enter to open a new split, mimics Kitty
 keybind = super+enter=new_split:auto

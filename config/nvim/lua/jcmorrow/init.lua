@@ -13,9 +13,13 @@ local function is_macOS_dark_mode()
 end
 
 if is_macOS_dark_mode() then
-  vim.cmd([[colorscheme rose-pine-moon]])
+  vim.cmd([[colorscheme everforest]])
+  vim.cmd("set background=dark")
+  -- vim.cmd([[colorscheme rose-pine-moon]])
 else
-  vim.cmd([[colorscheme rose-pine-dawn]])
+  vim.cmd("set background=light")
+  -- vim.cmd([[colorscheme rose-pine-dawn]])
+  vim.cmd([[colorscheme everforest]])
 end
 
 vim.cmd("highlight! link MatchParen Cursor")
