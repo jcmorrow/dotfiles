@@ -37,6 +37,9 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+
 -- space space go to previous buffer
 vim.keymap.set("n", "<leader><leader>", "<c-^>")
 
@@ -76,13 +79,12 @@ end, {})
 vim.keymap.set("n", "<leader>t", ":DuneTest<CR>", { silent = true })
 vim.keymap.set("n", "<leader>T", ":DuneTestUpdate<CR>", { silent = true })
 
-vim.keymap.set('n', '<leader>e', function()
+vim.keymap.set("n", "<leader>e", function()
   vim.diagnostic.goto_next()
   vim.diagnostic.open_float()
-end, { noremap=true, silent=true })
+end, { noremap = true, silent = true })
 
-
-vim.keymap.set('n', '<leader>E', function()
+vim.keymap.set("n", "<leader>E", function()
   vim.diagnostic.goto_prev()
   vim.diagnostic.open_float()
-end, { noremap=true, silent=true })
+end, { noremap = true, silent = true })
