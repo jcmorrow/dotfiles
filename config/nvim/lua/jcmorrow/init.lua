@@ -1,4 +1,4 @@
-require("jcmorrow.packer")
+require("jcmorrow.lazy")
 require("jcmorrow.set")
 require("jcmorrow.remap")
 vim.cmd([[
