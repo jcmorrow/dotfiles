@@ -32,6 +32,7 @@ alias g git
 
 alias code 'cd ~/code'
 alias dotfiles 'cd ~/dotfiles'
+alias nbs 'cd ~/code/whitecap/nbs-adapts'
 
 # Always use modern regexes with sed
 alias sed 'sed -E'
