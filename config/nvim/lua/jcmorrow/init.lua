@@ -21,6 +21,6 @@ end
 --   vim.cmd([[colorscheme everforest]])
 -- end
 
-vim.cmd([[colorscheme seoul256-light]])
+vim.cmd([[colorscheme seoul256]])
 
 vim.cmd("highlight! link MatchParen Cursor")
