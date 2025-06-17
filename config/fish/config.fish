@@ -73,6 +73,8 @@ end
 # rust
 source "$HOME/.cargo/env.fish"
 
+source "$HOME/.config/secrets"
+
 source ~/.config/fish/functions/fish_prompt.fish
 
 # Added by OrbStack: command-line tools and integration

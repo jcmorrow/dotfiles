@@ -43,9 +43,9 @@ function fish_prompt
 
     # Different prompt symbol based on last command status
     if test $last_status -eq 0
-        echo -n (set_color green)'❯ '
+        echo -n (set_color green)'λ '
     else
-        echo -n (set_color red)'❯ '
+        echo -n (set_color red)'λ '
     end
 
     set_color normal
