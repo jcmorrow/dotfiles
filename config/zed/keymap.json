@@ -1,0 +1,28 @@
+[
+  {
+    "bindings": {
+      "ctrl-n": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space t": [
+        "task::Spawn",
+        { "task_name": "dune test", "reveal_target": "dock" }
+      ],
+      "space T": [
+        "task::Spawn",
+        { "task_name": "dune update tests", "reveal_target": "dock" }
+      ]
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "space e": "editor::GoToDiagnostic",
+      "space E": "editor::GoToPreviousDiagnostic",
+      "space space": "pane::ActivatePreviousItem"
+    }
+  }
+]
