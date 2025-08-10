@@ -13,15 +13,14 @@
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
-    },
-    "version": "2"
+    }
   },
   "theme": "Seoul256 Dark",
   "vim_mode": true,
   "ui_font_family": "Berkeley Mono",
-  "ui_font_size": 18,
+  "ui_font_size": 14,
   "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 18,
+  "buffer_font_size": 14,
   "vertical_scroll_margin": 500,
   "scrollbar": {
     "show": "never"
@@ -40,5 +39,7 @@
         "classFunctions": ["cva", "cx"]
       }
     }
-  }
+  },
+  "seed_search_query_from_cursor": "selection",
+  "use_smartcase_search": true
 }
