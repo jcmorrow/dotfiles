@@ -11,11 +11,11 @@
     "default_profile": "ask",
     "model_parameters": [],
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     }
   },
-  "theme": "Seoul256 Dark",
+  "theme": "Catppuccin Frappé",
   "vim_mode": true,
   "ui_font_family": "Berkeley Mono",
   "ui_font_size": 14,
