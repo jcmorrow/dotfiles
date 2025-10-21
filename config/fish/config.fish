@@ -1,3 +1,4 @@
+set -gx PATH ~/.bin/ $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/sbin $PATH
 set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH

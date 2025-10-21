@@ -54,25 +54,11 @@ require("lspconfig").pyright.setup({
 })
 -- Ruff LSP for linting and formatting
 require("lspconfig").ruff.setup({
-  init_options = {
-    settings = {
-      formatter = {
-        enabled = true,
-      },
-      lint = {
-        enable = true,
-        select = {
-          "E", -- pycodestyle errors
-          "F", -- pyflakes
-          "I", -- isort
-          "B", -- flake8-bugbear
-          "C4", -- flake8-comprehensions
-          "UP", -- pyupgrade
-          "N", -- pep8-naming
-          "D", -- pydocstyle
-        },
-      },
-    },
-  },
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  cmd = {
+    "ruff",
+    "server",
+    "--config",
+    vim.fn.getcwd() .. "/pyproject.toml",
+  },
 })

@@ -4,6 +4,7 @@ return {
   { "sputnick1124/uiua.vim" },
   { "catppuccin/vim", as = "catpuccin" },
   { "rose-pine/neovim", as = "rose-pine" },
+  { "Shatur/neovim-ayu", as = "ayu" },
   { "junegunn/seoul256.vim" },
   { "neanias/everforest-nvim" },
   { "towolf/vim-helm" },

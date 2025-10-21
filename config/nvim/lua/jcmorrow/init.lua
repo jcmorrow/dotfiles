@@ -14,10 +14,10 @@ end
 if is_macOS_dark_mode() then
   -- vim.cmd([[colorscheme everforest]])
   vim.cmd("set background=dark")
-  vim.cmd([[colorscheme rose-pine]])
+  vim.cmd([[colorscheme ayu-mirage]])
 else
   vim.cmd("set background=light")
-  vim.cmd([[colorscheme rose-pine-dawn]])
+  vim.cmd([[colorscheme ayu-light]])
   -- vim.cmd([[colorscheme everforest]])
 end
 

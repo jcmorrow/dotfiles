@@ -1,12 +1,9 @@
 copy-on-select = clipboard
 font-family = "Geist Mono"
-font-family-bold = "Geist Mono Bold"
-font-family-italic = "Geist Mono"
-font-family-bold-italic = "Geist Mono Light"
+font-family-bold = "Berkeley Mono"
 font-size = 14
 # theme = "seoul256"
-theme = dark:Rose Pine,light:Rose Pine Dawn
-
+theme = dark:Ayu Mirage,light:Ayu Light
 
 # Cmd + Enter to open a new split, mimics Kitty
 keybind = super+enter=new_split:auto

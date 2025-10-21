@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec s5cmd --endpoint-url https://s3-west.nrp-nautilus.io -r 0 --profile nautilus "$@"

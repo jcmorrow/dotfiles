@@ -8,19 +8,18 @@
 // from the command palette or from `Zed` application menu.
 {
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
     }
   },
-  "theme": "Catppuccin Frappé",
+  "theme": "Catppuccin Macchiato",
   "vim_mode": true,
   "ui_font_family": "Berkeley Mono",
-  "ui_font_size": 14,
+  "ui_font_size": 16,
   "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 14,
   "vertical_scroll_margin": 500,
   "scrollbar": {
     "show": "never"
