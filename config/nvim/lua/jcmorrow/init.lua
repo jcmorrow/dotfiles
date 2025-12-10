@@ -25,3 +25,18 @@ vim.cmd("set background=dark")
 vim.cmd([[colorscheme ayu-mirage]])
 
 vim.cmd("highlight! link MatchParen Cursor")
+
+-- Enable OSC 52 clipboard support
+if os.getenv("SSH_TTY") ~= nil then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+end
