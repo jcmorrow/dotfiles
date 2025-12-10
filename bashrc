@@ -51,3 +51,5 @@ fi
 if command -v atuin &> /dev/null; then
   eval "$(atuin init bash)"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
