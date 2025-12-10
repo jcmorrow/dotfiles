@@ -11,8 +11,8 @@ fzf.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>f", fzf.files, {})
-vim.keymap.set("n", "<leader>F", fzf.git_files, {})
+vim.keymap.set("n", "<leader>F", fzf.files, {})
+vim.keymap.set("n", "<leader>f", fzf.git_files, {})
 vim.keymap.set("n", "<leader>/", fzf.live_grep, {})
 vim.keymap.set("n", "<leader>b", fzf.buffers, {})
 vim.keymap.set("n", "<leader>h", fzf.help_tags, {})
