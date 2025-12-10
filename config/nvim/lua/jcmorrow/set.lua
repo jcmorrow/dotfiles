@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 
-vim.opt.shell = "fish"
+if vim.fn.executable("fish") == 1 then
+  vim.opt.shell = "fish"
+end
 
 vim.opt.termguicolors = true
 
