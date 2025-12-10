@@ -21,6 +21,7 @@ else
   -- vim.cmd([[colorscheme everforest]])
 end
 
--- vim.cmd([[colorscheme seoul256]])
+vim.cmd("set background=dark")
+vim.cmd([[colorscheme ayu-mirage]])
 
 vim.cmd("highlight! link MatchParen Cursor")
