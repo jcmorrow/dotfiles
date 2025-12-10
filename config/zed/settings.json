@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "buffer_font_weight": 400.0,
-  "buffer_font_size": 12.0,
+  "buffer_font_size": 16.0,
   "agent": {
     "default_profile": "ask",
     "model_parameters": [],
@@ -17,11 +17,11 @@
       "model": "claude-sonnet-4"
     }
   },
-  "theme": "Fleet Dark",
+  "theme": "Tokyo Night Storm",
   "vim_mode": true,
-  "ui_font_family": "Berkeley Mono",
-  "ui_font_size": 16,
-  "buffer_font_family": "Berkeley Mono",
+  "ui_font_family": "IBM Plex Mono",
+  "ui_font_size": 17.0,
+  "buffer_font_family": "IBM Plex Mono",
   "vertical_scroll_margin": 500,
   "scrollbar": {
     "show": "never"

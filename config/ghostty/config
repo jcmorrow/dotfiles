@@ -1,6 +1,7 @@
 copy-on-select = clipboard
-font-family = "Geist Mono"
-font-family-bold = "Berkeley Mono"
+#font-family = "Uiua386"
+#font-family = "Berkeley Mono"
+font-family = "IBM Plex Mono"
 font-size = 14
 # theme = "seoul256"
 theme = dark:Ayu Mirage,light:Ayu Light
@@ -13,3 +14,5 @@ keybind = super+right=goto_split:right
 keybind = super+left=goto_split:left
 keybind = super+down=goto_split:bottom
 keybind = super+up=goto_split:top
+
+shell-integration-features = ssh-terminfo
