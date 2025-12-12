@@ -14,17 +14,17 @@ end
 if is_macOS_dark_mode() then
   -- vim.cmd([[colorscheme everforest]])
   vim.cmd("set background=dark")
-  vim.cmd([[colorscheme ayu-mirage]])
+  vim.cmd([[colorscheme rose-pine-moon]])
 else
   vim.cmd("set background=light")
-  vim.cmd([[colorscheme ayu-light]])
+  vim.cmd([[colorscheme rose-pine-dawn]])
   -- vim.cmd([[colorscheme everforest]])
 end
 
-vim.cmd("set background=dark")
-vim.cmd([[colorscheme ayu-mirage]])
+vim.cmd("set background=light")
+vim.cmd([[colorscheme rose-pine-dawn]])
 
-vim.cmd("highlight! link MatchParen Cursor")
+-- vim.cmd("highlight! link MatchParen Cursor")
 
 -- Enable OSC 52 clipboard support
 if os.getenv("SSH_TTY") ~= nil then

@@ -21,7 +21,7 @@
   "vim_mode": true,
   "ui_font_family": "IBM Plex Mono",
   "ui_font_size": 17.0,
-  "buffer_font_family": "IBM Plex Mono",
+  "buffer_font_family": "Geist Mono",
   "vertical_scroll_margin": 500,
   "scrollbar": {
     "show": "never"

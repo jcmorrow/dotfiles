@@ -13,7 +13,12 @@ local function vim_opt_toggle(opt, on, off, name)
 end
 
 vim.keymap.set("n", "<C-n>", function()
-  pcall(vim.cmd.Neotree, "toggle")
+  pcall(vim.cmd.Neotree, "left")
+end)
+vim.keymap.set("n", "<C-m>", function()
+  vim.cmd(
+    "Neotree float reveal_file=" .. vim.fn.expand("%") .. " reveal_force_cwd"
+  )
 end)
 vim.keymap.set("n", "<C-.>", function()
   vim_opt_toggle("number", true, false, "Line number")
