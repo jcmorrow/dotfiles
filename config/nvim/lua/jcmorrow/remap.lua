@@ -15,16 +15,17 @@ end
 vim.keymap.set("n", "<C-n>", function()
   pcall(vim.cmd.Neotree, "left")
 end)
-vim.keymap.set("n", "<C-m>", function()
-  vim.cmd(
-    "Neotree float reveal_file=" .. vim.fn.expand("%") .. " reveal_force_cwd"
-  )
+
+vim.keymap.set("n", "<C-,>", function()
+  local file = vim.fn.expand("%")
+  if file == "" then
+    return
+  end
+  vim.cmd("Neotree float reveal_file=" .. file .. " reveal_force_cwd")
 end)
+
 vim.keymap.set("n", "<C-.>", function()
   vim_opt_toggle("number", true, false, "Line number")
-end)
-vim.keymap.set("n", "<C-,>", function()
-  vim_opt_toggle("relativenumber", true, false, "Relative line number")
 end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 

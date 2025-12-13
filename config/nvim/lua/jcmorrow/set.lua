@@ -7,7 +7,8 @@ end
 vim.opt.termguicolors = true
 
 vim.opt.guicursor = ""
-vim.opt.scrolloff = 8
+vim.opt.cursorline = true
+vim.opt.scrolloff = 16
 
 vim.opt.number = false
 vim.opt.relativenumber = false
