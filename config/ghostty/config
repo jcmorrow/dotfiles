@@ -13,3 +13,5 @@ keybind = super+down=goto_split:bottom
 keybind = super+up=goto_split:top
 
 shell-integration-features = ssh-terminfo
+
+bell-features = no-attention,no-title

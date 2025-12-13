@@ -6,6 +6,7 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("ocamllsp")
 vim.lsp.enable("ruff")
+vim.lsp.enable("zls")
 
 -- Custom config for pyright
 vim.lsp.config.pyright = {
