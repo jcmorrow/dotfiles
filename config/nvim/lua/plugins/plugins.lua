@@ -133,4 +133,5 @@ return {
     build = "npm install --frozen-lockfile",
     opts = {},
   },
+  { "nvim-lualine/lualine.nvim" },
 }
