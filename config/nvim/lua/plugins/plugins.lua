@@ -52,7 +52,10 @@ return {
     end,
   },
   { "neovim/nvim-lspconfig" },
-  { "mhartington/formatter.nvim" },
+  {
+    "stevearc/conform.nvim",
+    opts = {},
+  },
   { "bakpakin/janet.vim" },
   { "mason-org/mason.nvim", opts = {} },
   { "folke/trouble.nvim" },
