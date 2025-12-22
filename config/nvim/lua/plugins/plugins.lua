@@ -70,12 +70,6 @@ return {
     lazy = false,
   },
   { "MeanderingProgrammer/render-markdown.nvim" },
-  {
-    "dlants/magenta.nvim",
-    lazy = false, -- you could also bind to <leader>mt
-    build = "npm install --frozen-lockfile",
-    opts = {},
-  },
   { "nvim-lualine/lualine.nvim" },
   {
     "folke/snacks.nvim",

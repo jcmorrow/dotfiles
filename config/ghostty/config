@@ -15,3 +15,5 @@ keybind = super+up=goto_split:top
 shell-integration-features = ssh-terminfo
 
 bell-features = no-attention,no-title
+
+custom-shader = ~/.config/ghostty/shaders/cursor-trail.glsl

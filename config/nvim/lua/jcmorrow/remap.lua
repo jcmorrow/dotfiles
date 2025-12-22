@@ -12,9 +12,7 @@ local function vim_opt_toggle(opt, on, off, name)
   vim.notify(message)
 end
 
-vim.keymap.set("n", "<C-n>", function()
-  pcall(vim.cmd.Neotree, "left")
-end)
+vim.keymap.set("n", "<C-n>", "<cmd>lua Snacks.explorer()<CR>", opts)
 
 vim.keymap.set("n", "<C-,>", function()
   local file = vim.fn.expand("%")
