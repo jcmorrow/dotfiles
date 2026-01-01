@@ -46,8 +46,6 @@ if command -v direnv > /dev/null
   eval (direnv hook fish)
 end
 
-load_nvm > /dev/stderr
-
 # E.g. kill_server 3000 will kill anything listening on 3000 other than firefox
 # or chrome
 function kill_server
@@ -72,9 +70,13 @@ end
 # pnpm end
 
 # rust
-source "$HOME/.cargo/env.fish"
+if test -f "$HOME/.cargo/env.fish"
+    source "$HOME/.cargo/env.fish"
+end
 
-source "$HOME/.config/secrets"
+if test -f "$HOME/.config/secrets"
+    source "$HOME/.config/secrets"
+end
 
 source ~/.config/fish/functions/fish_prompt.fish
 

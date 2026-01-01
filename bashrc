@@ -42,6 +42,7 @@ kill_server() {
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 [ -f "$HOME/.opam/opam-init/init.sh" ] && source "$HOME/.opam/opam-init/init.sh" 2>/dev/null || true
 
+
 # direnv hook (if installed)
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook bash)"
@@ -53,3 +54,4 @@ if command -v atuin &> /dev/null; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
