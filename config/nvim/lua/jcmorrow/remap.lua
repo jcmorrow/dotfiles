@@ -92,3 +92,7 @@ vim.keymap.set("n", "<leader>E", function()
   vim.diagnostic.goto_prev()
   vim.diagnostic.open_float()
 end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>pp", function()
+  require("snacks").picker.projects()
+end, { noremap = true })

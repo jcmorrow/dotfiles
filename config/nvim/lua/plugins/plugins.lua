@@ -7,8 +7,45 @@ return {
   { "junegunn/seoul256.vim" },
   { "neanias/everforest-nvim" },
   { "towolf/vim-helm" },
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
-  { "nvim-treesitter/playground", run = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.config").setup({
+        ensure_installed = {
+          "c",
+          "lua",
+          "vim",
+          "vimdoc",
+          "query",
+          "javascript",
+          "typescript",
+          "ruby",
+          "html",
+          "markdown",
+        },
+        sync_install = false,
+        auto_install = true,
+        ignore_install = {},
+        highlight = {
+          enable = true,
+          disable = function(lang, buf)
+            local max_filesize = 100 * 1024
+            local ok, stats =
+              pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end,
+          additional_vim_regex_highlighting = false,
+        },
+      })
+
+      vim.filetype.add({
+        extension = { mdx = "markdown" },
+      })
+    end,
+  },
   { "mbbill/undotree" },
   { "tpope/vim-fugitive" },
   { "tpope/vim-rhubarb" },
@@ -88,6 +125,12 @@ return {
               key = "f",
               desc = "Find File",
               action = ":lua Snacks.dashboard.pick('files')",
+            },
+            {
+              icon = " ",
+              key = "p",
+              desc = "Open Project",
+              action = ":lua Snacks.picker.projects()",
             },
             {
               icon = " ",
