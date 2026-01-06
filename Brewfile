@@ -1,0 +1,8 @@
+brew "atuin"
+brew "fd"
+brew "findutils"
+brew "fish"
+brew "neovim"
+brew "rcm"
+brew "ripgrep"
+cask "ghostty"
