@@ -7,12 +7,11 @@ set -gx PATH ~/.deno/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH ~/go/bin $PATH
 
-set -gx EARTHLY_SSH_AUTH_SOCK $SSH_AUTH_SOCK
-set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
-
 set -g fish_greeting
 set -gx __fish_git_prompt_char_cleanstate ''
-set -gx  RECORD_REPLAY_ENABLE_ASSERTS 1
+
+eval "$(ssh-agent -c)"
+ssh-add ~/.ssh/github
 
 alias vim="nvim"
 alias vi="nvim"

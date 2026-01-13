@@ -18,3 +18,5 @@ else
   vim.cmd("set background=light")
   vim.cmd([[colorscheme rose-pine-dawn]])
 end
+
+vim.cmd([[colorscheme rose-pine-moon]])
