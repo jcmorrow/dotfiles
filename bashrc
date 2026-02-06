@@ -1,6 +1,7 @@
 # PATH setup
 export PATH="$HOME/.bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/nvim/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/Cellar/babashka/1.3.184/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -14,9 +15,6 @@ export PATH="/Users/josh/Library/pnpm:$PATH"
 # Environment variables
 export EDITOR=nvim
 export LESS='-iMSx4 -RSFX -e'
-export EARTHLY_SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
-export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
-export RECORD_REPLAY_ENABLE_ASSERTS=1
 export J_BIN_FOLDER="/Applications/j903/bin"
 export J_INSTALLATION_FOLDER="/Applications/j903/"
 export BUN_INSTALL="$HOME/.bun"
@@ -56,3 +54,13 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ec2-user/google-cloud-sdk/path.bash.inc' ]; then . '/home/ec2-user/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ec2-user/google-cloud-sdk/completion.bash.inc'; fi
