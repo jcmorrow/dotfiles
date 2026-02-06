@@ -7,6 +7,7 @@ vim.lsp.enable("ts_ls")
 vim.lsp.enable("ocamllsp")
 vim.lsp.enable("ruff")
 vim.lsp.enable("zls")
+vim.lsp.enable("rust_analyzer")
 
 -- Custom config for pyright
 vim.lsp.config.pyright = {

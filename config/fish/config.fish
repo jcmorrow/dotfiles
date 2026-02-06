@@ -31,6 +31,7 @@ bind -M insert \cr history-pager
 alias g git
 
 alias code 'cd ~/code'
+alias modal 'cd ~/code/modal'
 alias dotfiles 'cd ~/dotfiles'
 alias nbs 'cd ~/code/whitecap/nbs-adapts'
 
@@ -75,3 +76,6 @@ source ~/.config/fish/functions/fish_prompt.fish
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# uv
+fish_add_path "/Users/jcmorrow/.local/bin"

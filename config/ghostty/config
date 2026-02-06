@@ -19,3 +19,7 @@ shell-integration-features = ssh-terminfo
 bell-features = no-attention,no-title
 
 custom-shader = ~/.config/ghostty/shaders/cursor-trail.glsl
+
+clipboard-write = allow
+clipboard-read = allow
+clipboard-paste-protection = false

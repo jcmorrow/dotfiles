@@ -7,7 +7,7 @@ require("conform").setup({
   },
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "isort", "black" },
+    python = { "isort", "ruff" },
     rust = { "rustfmt", lsp_format = "fallback" },
     javascript = { "prettier" },
     typescript = { "prettier" },
