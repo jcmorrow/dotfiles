@@ -31,7 +31,7 @@ bind -M insert \cr history-pager
 alias g git
 
 alias code 'cd ~/code'
-alias modal 'cd ~/code/modal'
+# alias modal 'cd ~/code/modal'
 alias dotfiles 'cd ~/dotfiles'
 alias nbs 'cd ~/code/whitecap/nbs-adapts'
 
