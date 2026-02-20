@@ -31,7 +31,6 @@ bind -M insert \cr history-pager
 alias g git
 
 alias code 'cd ~/code'
-# alias modal 'cd ~/code/modal'
 alias dotfiles 'cd ~/dotfiles'
 alias nbs 'cd ~/code/whitecap/nbs-adapts'
 
@@ -79,3 +78,13 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 # uv
 fish_add_path "/Users/jcmorrow/.local/bin"
+
+# pnpm
+set -gx PNPM_HOME "/Users/jcmorrow/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# opencode
+fish_add_path /Users/jcmorrow/.opencode/bin
