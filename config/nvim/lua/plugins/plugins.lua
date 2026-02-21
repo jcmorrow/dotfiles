@@ -109,6 +109,23 @@ return {
   { "MeanderingProgrammer/render-markdown.nvim" },
   { "nvim-lualine/lualine.nvim" },
   {
+    "ydkulks/cursor-dark.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("cursor-dark-midnight")
+      require("cursor-dark").setup({
+        -- For theme
+        -- style = "dark-midnight",
+        style = "dark",
+        -- For a transparent background
+        -- transparent = true,
+        -- If you have dashboard-nvim plugin installed
+        dashboard = true,
+      })
+    end,
+  },
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,

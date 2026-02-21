@@ -11,12 +11,12 @@ local function is_macOS_dark_mode()
   return result and string.find(result, "Dark")
 end
 
-if is_macOS_dark_mode() then
-  vim.cmd("set background=dark")
-  vim.cmd([[colorscheme rose-pine-moon]])
-else
-  vim.cmd("set background=light")
-  vim.cmd([[colorscheme rose-pine-dawn]])
-end
+-- if is_macOS_dark_mode() then
+--   vim.cmd("set background=dark")
+--   vim.cmd([[colorscheme rose-pine-moon]])
+-- else
+--   vim.cmd("set background=light")
+--   vim.cmd([[colorscheme rose-pine-dawn]])
+-- end
 
-vim.cmd([[colorscheme rose-pine-moon]])
+-- vim.cmd([[colorscheme rose-pine-moon]])
