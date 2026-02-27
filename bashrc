@@ -189,6 +189,12 @@ __bash_prompt() {
         [[ -n "$ver" ]] && tool_versions+=" on ${blue}docker${ver}${reset}"
     fi
 
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        local venv_name
+        venv_name=$(basename "$VIRTUAL_ENV")
+        tool_versions+=" via ${yellow}(${venv_name})${reset}"
+    fi
+
     # Assemble prompt (two lines when there's git/tool info, one line otherwise)
     local top="${cwd_str}${git_branch}${tool_versions}"
     local bottom="${user_prefix}${jobs_num}${exit_code}${suffix} "
