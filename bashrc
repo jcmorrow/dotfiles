@@ -104,7 +104,7 @@ __bash_prompt() {
     # User prefix: SSH session or Docker machine
     local user_prefix=""
     if [[ -n "$SSH_CLIENT" ]]; then
-        user_prefix="${USER}@$(hostname -s) "
+        user_prefix="${USER} "
     fi
     if [[ -n "$DOCKER_MACHINE_NAME" ]]; then
         user_prefix="${blue}${DOCKER_MACHINE_NAME}${reset} "
