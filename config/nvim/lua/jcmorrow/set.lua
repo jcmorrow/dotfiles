@@ -10,7 +10,7 @@ vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.scrolloff = 16
 
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 vim.opt.tabstop = 2
