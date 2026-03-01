@@ -7,7 +7,6 @@ return {
   { "junegunn/seoul256.vim" },
   { "neanias/everforest-nvim" },
   { "towolf/vim-helm" },
-  { "fatih/vim-go" },
   { "ellisonleao/gruvbox.nvim" },
   {
     "nvim-treesitter/nvim-treesitter",

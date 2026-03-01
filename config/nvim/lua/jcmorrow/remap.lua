@@ -36,10 +36,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", '"_dP')
 
--- ctrl-k go to next error
--- ctrl-j go to previous error
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- ctrl-h/j/k/l navigate splits
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
