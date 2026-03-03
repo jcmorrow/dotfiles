@@ -119,21 +119,6 @@ function fish_prompt --description 'Write out the prompt'
         set -g docker_version
     end
 
-    # Set node (and ts) version, based on existance of package.json (and tsconfig.json)
-    if test -e ./package.json; and command -sq node
-        if test -z "$node_version"
-            set -l version_str (string sub -s 2 (node -v))
-            set -g node_version ' with ' (set_color brgreen) 'node' $version_str (set_color normal)
-
-            if test -e ./tsconfig.json; and command -sq tsc
-                set -l version_str (string match -r '\d+\.\d+\.?\d*' (tsc -v))
-                set -g node_version $node_version ' and ' (set_color cyan) 'ts' $version_str (set_color normal)
-            end
-        end
-    else
-        set -g node_version
-    end
-
     # Set elixir version, based on existance of mix.exs
     if test -e ./mix.exs; and command -sq elixir
         if test -z "$ex_version"
@@ -156,7 +141,7 @@ function fish_prompt --description 'Write out the prompt'
 
     # Combine all prompt variables
     set -l cwd (set_color $color_cwd) (prompt_pwd) (set_color normal)
-    set -l top_prompt $cwd $git_branch $go_version $ex_version $node_version $dart_version $flutter_version $docker_version
+    set -l top_prompt $cwd $git_branch $go_version $ex_version $dart_version $flutter_version $docker_version
     set -l bottom_prompt $user_prefix $jobs_num $exit_code $suffix ' '
 
     # Decide whether to insert newline, based on whether the top prompt is only equal to cwd
