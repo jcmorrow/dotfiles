@@ -6,6 +6,7 @@ require("conform").setup({
     lsp_format = "fallback",
   },
   formatters_by_ft = {
+    ["*"] = { "trim_whitespace" },
     go = {"gofmt", "golines"},
     lua = { "stylua" },
     python = { "ruff", "ruff_format", "ruff_organize_imports" },
