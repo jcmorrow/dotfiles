@@ -48,6 +48,7 @@ if command -v direnv &> /dev/null; then
   eval "$(direnv hook bash)"
 fi
 
+. "$HOME/.atuin/bin/env"
 # atuin (if installed)
 if command -v atuin &> /dev/null; then
   eval "$(atuin init bash)"
@@ -207,3 +208,21 @@ __bash_prompt() {
 }
 
 PROMPT_COMMAND='__bash_prompt'
+# >>> modal initialize >>>
+export PATH=/usr/local/aws-cli/v2/current/bin:$PATH
+# AWS authenticator for accessing EKS clusters
+export PATH=$PATH:$HOME/.aws/bin:$HOME/.pulumi/bin
+# Add the check_kube_context to your PROMPT
+function check_kube_context() {
+  KUBE_CONTEXT=$(kubectl config current-context 2>/dev/null)
+  # If not empty string, assume any context that doesn't contain substring 'dev' is production
+  if [[ -n "$KUBE_CONTEXT" && ! "$KUBE_CONTEXT" =~ "dev" ]]; then
+    echo "%{$fg_bold[yellow]%}[CAUTION: K8S PROD CONTEXT]%{$reset_color%} "
+  fi
+}
+PROMPT='$(check_kube_context)'$PROMPT
+
+export PATH=/home/ec2-user/bin:$PATH
+
+[[ -e "/home/ec2-user/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/ec2-user/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh"
+export PATH=$PATH:$HOME/lib/oracle-cli/bin
