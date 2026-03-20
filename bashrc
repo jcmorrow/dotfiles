@@ -48,11 +48,11 @@ if command -v direnv &> /dev/null; then
   eval "$(direnv hook bash)"
 fi
 
-. "$HOME/.atuin/bin/env"
-# atuin (if installed)
-if command -v atuin &> /dev/null; then
-  eval "$(atuin init bash)"
-fi
+# . "$HOME/.atuin/bin/env"
+# # atuin (if installed)
+# if command -v atuin &> /dev/null; then
+#   eval "$(atuin init bash)"
+# fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

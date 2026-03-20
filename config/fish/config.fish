@@ -55,7 +55,7 @@ end
 source ~/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # atuin
-atuin init fish | source
+# atuin init fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
