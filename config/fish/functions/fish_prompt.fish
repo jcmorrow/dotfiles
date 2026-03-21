@@ -99,6 +99,11 @@ function fish_prompt --description 'Write out the prompt'
         set user_prefix (set_color blue) $DOCKER_MACHINE_NAME (set_color normal) ' '
     end
 
+    # Override user prefix from ~/.prompt_prefix if it exists
+    if test -f "$HOME/.prompt_prefix"
+        set user_prefix (string trim (cat "$HOME/.prompt_prefix")) ' '
+    end
+
     # Set go version, by existence of go mod or dep files
     if test -e ./go.mod; or test -e ./Gopkg.toml; and command -sq go
         if test -z "$go_version"

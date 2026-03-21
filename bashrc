@@ -111,6 +111,11 @@ __bash_prompt() {
         user_prefix="${blue}${DOCKER_MACHINE_NAME}${reset} "
     fi
 
+    # Override user prefix from ~/.prompt_prefix if it exists
+    if [[ -f "$HOME/.prompt_prefix" ]]; then
+        user_prefix="$(tr -d '\n' < "$HOME/.prompt_prefix") "
+    fi
+
     # Prompt suffix
     local suffix=">"
     if [[ "$USER" == "root" || "$USER" == "toor" ]]; then
