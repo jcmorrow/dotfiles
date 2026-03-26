@@ -5,7 +5,8 @@ set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/.deno/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
-set -gx PATH ~/go/bin $PATH
+fish_add_path (go env GOROOT)/bin
+fish_add_path (go env GOPATH)/bin
 
 set -g fish_greeting
 set -gx __fish_git_prompt_char_cleanstate ''
@@ -23,9 +24,6 @@ function splash
    '
    end
  end
-
-eval "$(ssh-agent -c)"
-ssh-add ~/.ssh/github
 
 alias vim="nvim"
 alias vi="nvim"
