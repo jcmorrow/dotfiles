@@ -97,3 +97,7 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>pp", function()
   require("snacks").picker.projects()
 end, { noremap = true })
+
+vim.keymap.set("n", "<leader>S", function()
+  Snacks.picker.lsp_workspace_symbols()
+end, { noremap = true })
