@@ -1,4 +1,5 @@
 set -gx PATH ~/.bin/ $PATH
+set -gx PATH ~/.local/share/nvim/site/ $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /opt/homebrew/sbin $PATH
 set -gx PATH /opt/homebrew/Cellar/babashka/1.3.184/bin/ $PATH
@@ -100,3 +101,5 @@ end
 
 # opencode
 fish_add_path /Users/jcmorrow/.opencode/bin
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
