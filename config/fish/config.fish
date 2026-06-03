@@ -90,16 +90,14 @@ source ~/.config/fish/functions/fish_prompt.fish
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 # uv
-fish_add_path "/Users/jcmorrow/.local/bin"
+fish_add_path "$HOME/.local/bin"
 
 # pnpm
-set -gx PNPM_HOME "/Users/jcmorrow/Library/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+set -gx PNPM_HOME "/home/ec2-user/Library/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
 end
 # pnpm end
 
 # opencode
 fish_add_path /Users/jcmorrow/.opencode/bin
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
