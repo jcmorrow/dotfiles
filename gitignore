@@ -1,6 +1,7 @@
 tags
 .byebug_history
 **/.claude/settings.local.json
+.claude/
 .DS_Store
 .direnv/
 .venv/
