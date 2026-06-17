@@ -5,6 +5,16 @@ return {
   { "rose-pine/neovim", as = "rose-pine" },
   { "Shatur/neovim-ayu", as = "ayu" },
   { "junegunn/seoul256.vim" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+  },
   { "neanias/everforest-nvim" },
   { "towolf/vim-helm" },
   { "ellisonleao/gruvbox.nvim" },

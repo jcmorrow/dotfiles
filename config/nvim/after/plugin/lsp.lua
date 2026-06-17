@@ -1,15 +1,14 @@
 vim.lsp.enable("gleam")
-vim.lsp.enable("uiua")
+vim.lsp.enable("gopls")
 vim.lsp.enable("helm_ls")
 vim.lsp.enable("nickel_ls")
-vim.lsp.enable("pyright")
-vim.lsp.enable("ts_ls")
 vim.lsp.enable("ocamllsp")
+vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("uiua")
 vim.lsp.enable("zls")
-vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("gopls")
 
 -- Custom config for pyright
 vim.lsp.config.pyright = {
