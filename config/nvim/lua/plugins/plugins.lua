@@ -1,3 +1,73 @@
+-- turbopuffer-style splash box with a random CS quote inside.
+local function build_splash()
+  -- Edsger W. Dijkstra
+  local quotes = {
+    "Simplicity is prerequisite for reliability.",
+    "The art of programming is the art of organizing complexity.",
+    "The competent programmer is fully aware of the strictly limited size of his own skull.",
+    "Elegance is not a dispensable luxury but a quality that decides between success and failure.",
+    "Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.",
+    "Computer science is no more about computers than astronomy is about telescopes.",
+    "Perfecting oneself is as much unlearning as it is learning.",
+    "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
+    "The purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise.",
+    "Prolonged contact with the computer turns mathematicians into clerks and vice versa.",
+  }
+
+  -- hrtime (nanoseconds) so quotes still vary across rapid restarts
+  math.randomseed(vim.loop.hrtime())
+  -- ASCII hyphen (not an em-dash) so widths are deterministic across terminals
+  local quote, author = quotes[math.random(#quotes)], "- Edsger Dijkstra"
+
+  local text_w = 52 -- usable width for text between the side padding
+
+  -- word-wrap the quote to text_w
+  local lines = {}
+  local line = ""
+  for word in quote:gmatch("%S+") do
+    if #line == 0 then
+      line = word
+    elseif #line + 1 + #word <= text_w then
+      line = line .. " " .. word
+    else
+      table.insert(lines, line)
+      line = word
+    end
+  end
+  if #line > 0 then
+    table.insert(lines, line)
+  end
+
+  local inner = text_w + 2 -- one space of padding on each side of the box
+  -- box-drawing chars are multi-byte, so measure display width, not byte length
+  local dw = vim.fn.strdisplaywidth
+  local function center(s)
+    local pad = inner - dw(s)
+    local left = math.floor(pad / 2)
+    return string.rep(" ", left) .. s .. string.rep(" ", pad - left)
+  end
+  local function rjust(s)
+    -- right-align within the inner width, keeping a trailing space of padding
+    return string.rep(" ", inner - dw(s) - 1) .. s .. " "
+  end
+
+  local out = {}
+  -- trailing space keeps this row the same display width as the shadowed rows
+  -- below it, so snacks centers every line with the same indent (no off-by-one)
+  table.insert(out, "╔" .. string.rep("═", inner) .. "╗ ")
+  table.insert(out, "║" .. string.rep(" ", inner) .. "║░")
+  for _, l in ipairs(lines) do
+    table.insert(out, "║" .. center(l) .. "║░")
+  end
+  table.insert(out, "║" .. string.rep(" ", inner) .. "║░")
+  -- right-align the author
+  table.insert(out, "║" .. rjust(author) .. "║░")
+  table.insert(out, "╚" .. string.rep("═", inner) .. "╝░")
+  table.insert(out, " " .. string.rep("░", inner + 2))
+
+  return table.concat(out, "\n")
+end
+
 return {
   { "nvim-tree/nvim-web-devicons" },
   { "sputnick1124/uiua.vim" },
@@ -207,14 +277,7 @@ return {
             },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          header = [[
-       ██╗ ██████╗███╗   ███╗ ██████╗ ██████╗ ██████╗  ██████╗ ██╗    ██╗
-       ██║██╔════╝████╗ ████║██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗██║    ██║
-       ██║██║     ██╔████╔██║██║   ██║██████╔╝██████╔╝██║   ██║██║ █╗ ██║
-  ██   ██║██║     ██║╚██╔╝██║██║   ██║██╔══██╗██╔══██╗██║   ██║██║███╗██║
-  ╚█████╔╝╚██████╗██║ ╚═╝ ██║╚██████╔╝██║  ██║██║  ██║╚██████╔╝╚███╔███╔╝
-   ╚════╝  ╚═════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝
-      ]],
+          header = build_splash(),
         },
         sections = {
           { section = "header" },
