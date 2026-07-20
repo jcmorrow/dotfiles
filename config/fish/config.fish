@@ -93,7 +93,7 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 fish_add_path "$HOME/.local/bin"
 
 # pnpm
-set -gx PNPM_HOME "/home/ec2-user/Library/pnpm"
+set -gx PNPM_HOME "$HOME/Library/pnpm"
 if not string match -q -- "$PNPM_HOME/bin" $PATH
   set -gx PATH "$PNPM_HOME/bin" $PATH
 end
