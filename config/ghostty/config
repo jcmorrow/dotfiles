@@ -4,7 +4,7 @@ font-family-italic = "Maple Mono"
 font-family-bold-italic = "Maple Mono"
 font-size = 16
 theme = Rose Pine Moon
-theme = Gruvbox Dark Hard
+# theme = Gruvbox Dark Hard
 # theme = TokyoNight Storm
 
 

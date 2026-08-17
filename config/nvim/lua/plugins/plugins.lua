@@ -72,7 +72,12 @@ return {
   { "nvim-tree/nvim-web-devicons" },
   { "sputnick1124/uiua.vim" },
   { "catppuccin/vim", as = "catpuccin" },
-  { "rose-pine/neovim", as = "rose-pine" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+  },
   { "Shatur/neovim-ayu", as = "ayu" },
   { "junegunn/seoul256.vim" },
   {
