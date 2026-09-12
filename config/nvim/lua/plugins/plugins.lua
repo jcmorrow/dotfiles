@@ -190,16 +190,6 @@ return {
   { "mason-org/mason.nvim", opts = {} },
   { "folke/trouble.nvim" },
   { "folke/which-key.nvim" },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    lazy = false,
-  },
   { "MeanderingProgrammer/render-markdown.nvim" },
   { "nvim-lualine/lualine.nvim" },
   {

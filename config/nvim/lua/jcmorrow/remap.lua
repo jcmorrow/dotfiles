@@ -19,7 +19,7 @@ vim.keymap.set("n", "<C-,>", function()
   if file == "" then
     return
   end
-  vim.cmd("Neotree float reveal_file=" .. file .. " reveal_force_cwd")
+  Snacks.explorer.reveal({ file = file })
 end)
 
 vim.keymap.set("n", "<C-.>", function()
