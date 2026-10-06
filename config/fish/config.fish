@@ -79,6 +79,16 @@ if test -f "$HOME/.cargo/env.fish"
     source "$HOME/.cargo/env.fish"
 end
 
+# Forwarded agent sockets die with their connection, so long-lived processes
+# point at a stable link that each new login repoints at its live socket.
+set -l agent_link ~/.ssh/agent.sock
+if test -S "$SSH_AUTH_SOCK"; and test "$SSH_AUTH_SOCK" != $agent_link
+    ln -sfn $SSH_AUTH_SOCK $agent_link
+end
+if test -S $agent_link
+    set -gx SSH_AUTH_SOCK $agent_link
+end
+
 if test -f "$HOME/.config/secrets"
     source "$HOME/.config/secrets"
 end
