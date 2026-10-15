@@ -8,6 +8,7 @@ set -gx PATH ~/.deno/bin/ $PATH
 set -gx PATH /usr/local/bin $PATH
 fish_add_path (go env GOROOT)/bin
 fish_add_path (go env GOPATH)/bin
+fish_add_path --path -a /usr/sbin /sbin
 
 set -g fish_greeting
 set -gx __fish_git_prompt_char_cleanstate ''
