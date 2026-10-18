@@ -30,7 +30,6 @@ alias g="git"
 alias code="cd ~/code"
 alias dotfiles="cd ~/dotfiles"
 alias nbs="cd ~/code/whitecap/nbs-adapts"
-alias sed="sed -E"
 
 # Functions
 kill_server() {
