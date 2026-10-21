@@ -30,5 +30,5 @@ require("rose-pine").setup({
 })
 
 -- vim.cmd([[colorscheme tokyonight]])
--- vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[colorscheme rose-pine-moon]])
+vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme rose-pine-moon]])
