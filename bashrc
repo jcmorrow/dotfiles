@@ -37,7 +37,11 @@ alias dotfiles="cd ~/dotfiles"
 # Functions
 kill_server() {
   local pids
-  pids=$(lsof -t -nP -iTCP:"$1" -sTCP:LISTEN)
+  if command -v lsof &> /dev/null; then
+    pids=$(lsof -t -nP -iTCP:"$1" -sTCP:LISTEN)
+  else
+    pids=$(ss -Htlnp "sport = :$1" | grep -oP 'pid=\K\d+' | sort -u)
+  fi
   if [ -n "$pids" ]; then
     kill $pids
   else

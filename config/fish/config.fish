@@ -35,7 +35,12 @@ if command -v direnv > /dev/null
 end
 
 function kill_server
-  set -l pids (lsof -t -nP -iTCP:$argv[1] -sTCP:LISTEN)
+  set -l pids
+  if command -v lsof > /dev/null
+    set pids (lsof -t -nP -iTCP:$argv[1] -sTCP:LISTEN)
+  else
+    set pids (ss -Htlnp "sport = :$argv[1]" | string match -rag 'pid=(\d+)' | sort -u)
+  end
   if test -n "$pids"
     kill $pids
   else
