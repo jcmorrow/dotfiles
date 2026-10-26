@@ -75,4 +75,7 @@ fish_add_path "$PNPM_HOME/bin"
 # opencode
 fish_add_path /Users/jcmorrow/.opencode/bin
 
-theme_gruvbox dark hard
+# Provided by the Jomik/fish-gruvbox Fisher plugin
+if functions -q theme_gruvbox
+    theme_gruvbox dark hard
+end
