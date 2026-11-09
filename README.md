@@ -6,7 +6,8 @@ Because loving your tools means loving your work.
 
 - [Homebrew](https://docs.brew.sh/Installation)
 - [rcm](https://github.com/thoughtbot/rcm) (`brew install rcm`)
-- nvim (`brew install nvim`)
+- nvim (`brew install nvim`; on Linux, run `bin/install_neovim` instead, since
+  distro packages are often too old for the plugins)
 - Ghostty (`brew install ghostty`)
 - fish (`brew install fish`)
 
