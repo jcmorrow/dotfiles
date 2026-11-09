@@ -1,5 +1,49 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
+#
+# Install or update Neovim from the official release, for this user only.
+#
+# Linux distro packages often lag behind what plugins need (Ubuntu 24.04 ships
+# 0.9.5; snacks.nvim needs 0.10+). This installs the release to
+# ~/.local/opt/nvim and links it into ~/.local/bin, which bashrc puts first on
+# PATH. No sudo needed; rerun any time to update. On macOS, use
+# `brew install nvim` instead.
+#
+# Usage: install_neovim [version]   (default: stable, e.g. v0.11.5 or nightly)
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-tar -xzf nvim-linux-x86_64.tar.gz
-sudo cp -r nvim-linux-x86_64/* /usr/local/
+set -euo pipefail
+
+version=${1:-stable}
+
+if [[ $(uname -s) != Linux ]]; then
+    echo "install_neovim: Linux only; on macOS run: brew install nvim" >&2
+    exit 1
+fi
+
+case $(uname -m) in
+    x86_64) arch=x86_64 ;;
+    aarch64 | arm64) arch=arm64 ;;
+    *)
+        echo "install_neovim: unsupported architecture: $(uname -m)" >&2
+        exit 1
+        ;;
+esac
+
+url="https://github.com/neovim/neovim/releases/download/$version/nvim-linux-$arch.tar.gz"
+dest="$HOME/.local/opt/nvim"
+
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+echo "Downloading $url"
+curl -fL --progress-bar "$url" | tar -xz -C "$tmp"
+
+# Swap in the new release only after a successful download and extract.
+mkdir -p "$HOME/.local/opt" "$HOME/.local/bin"
+rm -rf "$dest"
+mv "$tmp/nvim-linux-$arch" "$dest"
+ln -sf "$dest/bin/nvim" "$HOME/.local/bin/nvim"
+
+"$HOME/.local/bin/nvim" --version | head -1
+if [[ $(command -v nvim) != "$HOME/.local/bin/nvim" ]]; then
+    echo "Note: ~/.local/bin is not first on PATH; \`nvim\` still resolves to $(command -v nvim)" >&2
+fi
