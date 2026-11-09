@@ -51,4 +51,4 @@ press `prefix` + `I` to install the plugins.
 
 After `git pull`, reload tmux with `tmux source-file ~/.tmux.conf`. tmux only
 reads its config at startup, so a long-running server keeps the old settings
-until you do. Run `rcup` again if files were added.
+until you do. Run `rcup -d ~/dotfiles` again if files were added.
